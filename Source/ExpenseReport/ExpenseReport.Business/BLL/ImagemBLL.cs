@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using DapperExtensions;
 using ExpenseReport.Business.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,13 +38,7 @@ namespace ExpenseReport.Business.BLL
 
             return ImagemID;
         }
-
-        public bool Alterar(Imagem imagem)
-        {
-            this.InicializarConexao();
-            return Conexao.Update(imagem);            
-        }
-
+        
         public bool Excluir(long imagemID)
         {
             this.InicializarConexao();

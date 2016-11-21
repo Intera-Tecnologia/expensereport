@@ -12,10 +12,30 @@ namespace ExpenseReport.Business.BLL
             this.InicializarConexao();
 
             string strConsulta = 
-                "SELECT * FROM Colaborador ORDER BY ColaboradorID";
+                @"SELECT * 
+                  FROM Colaborador 
+                  ORDER BY Nome";
 
             List<Colaborador> lista = Conexao
                 .Query<Colaborador>(strConsulta)
+                .ToList();
+            return lista;
+        }
+
+        public List<Colaborador> Listagem(string nome)
+        {
+            this.InicializarConexao();
+
+            nome = "%" + nome + "%";
+
+            string strConsulta =
+                @"SELECT * 
+                  FROM Colaborador 
+                  WHERE Nome LIKE @Nome
+                  ORDER BY Nome";
+
+            List<Colaborador> lista = Conexao
+                .Query<Colaborador>(strConsulta, new { Nome = nome })
                 .ToList();
             return lista;
         }
@@ -31,6 +51,22 @@ namespace ExpenseReport.Business.BLL
 
             Colaborador colaborador = Conexao
                 .Query<Colaborador>(strConsulta, new { ColaboradorID = colaboradorID })
+                .FirstOrDefault();
+
+            return colaborador;
+        }
+
+        public Colaborador Acesso(string login, string senha)
+        {
+            this.InicializarConexao();
+
+            string strConsulta =
+                @"SELECT * 
+                  FROM Colaborador 
+                  WHERE ColaboradorID = @ColaboradorID";
+
+            Colaborador colaborador = Conexao
+                .Query<Colaborador>(strConsulta, new { Login = login, Senha = senha })
                 .FirstOrDefault();
 
             return colaborador;

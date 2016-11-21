@@ -6,6 +6,8 @@ namespace ExpenseReport.Business.Entities
     {
         public long ColaboradorID { get; set; }
         public string Nome { get; set; }
+        public string Senha { get; set; }
+        public string Login { get; set; }
 
         public List<Relatorio> Relatorios { get; set; } = new List<Relatorio>();
     }

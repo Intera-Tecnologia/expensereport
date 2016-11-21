@@ -53,7 +53,11 @@
     <Compile Include="BLL\ColaboradorBLL.cs" />
     <Compile Include="BLL\FonteDespesaBLL.cs" />
     <Compile Include="BLL\ImagemBLL.cs" />
+    <Compile Include="BLL\ProjetoBLL.cs" />
+    <Compile Include="BLL\RelatorioBLL.cs" />
+    <Compile Include="BLL\RelatorioDespesaBLL.cs" />
     <Compile Include="BLL\TipoDespesaBLL.cs" />
+    <Compile Include="BLL\ViagemBLL.cs" />
     <Compile Include="Entities\Colaborador.cs" />
     <Compile Include="Entities\FonteDespesa.cs" />
     <Compile Include="Entities\Imagem.cs" />

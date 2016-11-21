@@ -18,5 +18,8 @@ namespace ExpenseReport.Business.Entities
         public Colaborador Colaborador { get; set; }
         public Viagem Viagem { get; set; }
         public List<RelatorioDespesa> Despesas { get; set; } = new List<RelatorioDespesa>();
+
+        public DateTime DataViagemInicio { get; set; }
+        public DateTime DataViagemFim { get; set; }
     }
 }

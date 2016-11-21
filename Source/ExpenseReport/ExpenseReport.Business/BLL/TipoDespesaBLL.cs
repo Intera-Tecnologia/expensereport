@@ -11,7 +11,10 @@ namespace ExpenseReport.Business.BLL
         {
             this.InicializarConexao();
 
-            string strConsulta = "SELECT * FROM TipoDespesa ORDER BY TipoDespesaID";
+            string strConsulta = 
+                @"SELECT * 
+                  FROM TipoDespesa 
+                  ORDER BY TipoDespesaID";
 
             List<TipoDespesa> lista = Conexao
                 .Query<TipoDespesa>(strConsulta)
