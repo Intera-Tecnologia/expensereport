@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoPrincipal" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicoPrincipal_Imagem_ListagemPorRelatorioDespesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_ListagemPorRelatorioDespesa" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Imagem_ListagemPorRelatorioDespesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_ListagemPorRelatorioDespesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Imagem_Incluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_Incluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Imagem_Incluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_IncluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Imagem_Excluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_Excluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Imagem_Excluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Imagem_ExcluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_Listagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_Listagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_Listagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_ListagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_ListagemPorNome_InputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_ListagemPorNome" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_ListagemPorNome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_ListagemPorNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_PeloCodigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_PeloCodigo" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Colaborador_PeloCodigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Colaborador_PeloCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_FonteDespesa_Listagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:FonteDespesa_Listagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_FonteDespesa_Listagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FonteDespesa_ListagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_TipoDespesa_Listagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoDespesa_Listagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_TipoDespesa_Listagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoDespesa_ListagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Listagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_Listagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Listagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ListagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_ListagemPorDescricao_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ListagemPorDescricao" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_ListagemPorDescricao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ListagemPorDescricaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_ListagemPorProjeto_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ListagemPorProjeto" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_ListagemPorProjeto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ListagemPorProjetoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_InputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_ListagemPorRelatorio" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_ListagemPorRelatorioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_Incluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_Incluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_Incluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_IncluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_Excluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_Excluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_RelatorioDespesa_Excluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RelatorioDespesa_ExcluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorData_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorData" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorColaborador_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorColaborador" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorColaborador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorColaboradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorDataColaborador_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorDataColaborador" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorDataColaborador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorDataColaboradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_Listagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_Listagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_Listagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_ListagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_ListagemPorDescricao_InputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_ListagemPorDescricao" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_ListagemPorDescricao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_ListagemPorDescricaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicoPrincipal">
+    <wsdl:operation name="Imagem_ListagemPorRelatorioDespesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_ListagemPorRelatorioDespesa" message="tns:IServicoPrincipal_Imagem_ListagemPorRelatorioDespesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_ListagemPorRelatorioDespesaResponse" message="tns:IServicoPrincipal_Imagem_ListagemPorRelatorioDespesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Imagem_Incluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_Incluir" message="tns:IServicoPrincipal_Imagem_Incluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_IncluirResponse" message="tns:IServicoPrincipal_Imagem_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Imagem_Excluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_Excluir" message="tns:IServicoPrincipal_Imagem_Excluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_ExcluirResponse" message="tns:IServicoPrincipal_Imagem_Excluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_Listagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_Listagem" message="tns:IServicoPrincipal_Colaborador_Listagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_ListagemResponse" message="tns:IServicoPrincipal_Colaborador_Listagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_ListagemPorNome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_ListagemPorNome" message="tns:IServicoPrincipal_Colaborador_ListagemPorNome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_ListagemPorNomeResponse" message="tns:IServicoPrincipal_Colaborador_ListagemPorNome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_PeloCodigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_PeloCodigo" message="tns:IServicoPrincipal_Colaborador_PeloCodigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Colaborador_PeloCodigoResponse" message="tns:IServicoPrincipal_Colaborador_PeloCodigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FonteDespesa_Listagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/FonteDespesa_Listagem" message="tns:IServicoPrincipal_FonteDespesa_Listagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/FonteDespesa_ListagemResponse" message="tns:IServicoPrincipal_FonteDespesa_Listagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoDespesa_Listagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/TipoDespesa_Listagem" message="tns:IServicoPrincipal_TipoDespesa_Listagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/TipoDespesa_ListagemResponse" message="tns:IServicoPrincipal_TipoDespesa_Listagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Listagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_Listagem" message="tns:IServicoPrincipal_Viagem_Listagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemResponse" message="tns:IServicoPrincipal_Viagem_Listagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_ListagemPorDescricao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorDescricao" message="tns:IServicoPrincipal_Viagem_ListagemPorDescricao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorDescricaoResponse" message="tns:IServicoPrincipal_Viagem_ListagemPorDescricao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_ListagemPorProjeto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjeto" message="tns:IServicoPrincipal_Viagem_ListagemPorProjeto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjetoResponse" message="tns:IServicoPrincipal_Viagem_ListagemPorProjeto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_ListagemPorRelatorio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorio" message="tns:IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorioResponse" message="tns:IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_Incluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_Incluir" message="tns:IServicoPrincipal_RelatorioDespesa_Incluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_IncluirResponse" message="tns:IServicoPrincipal_RelatorioDespesa_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_Excluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_Excluir" message="tns:IServicoPrincipal_RelatorioDespesa_Excluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ExcluirResponse" message="tns:IServicoPrincipal_RelatorioDespesa_Excluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorData" message="tns:IServicoPrincipal_Relatorio_ListagemPorData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPorData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorColaborador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorColaborador" message="tns:IServicoPrincipal_Relatorio_ListagemPorColaborador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorColaboradorResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPorColaborador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorDataColaborador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaborador" message="tns:IServicoPrincipal_Relatorio_ListagemPorDataColaborador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaboradorResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPorDataColaborador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_Listagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_Listagem" message="tns:IServicoPrincipal_Projeto_Listagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_ListagemResponse" message="tns:IServicoPrincipal_Projeto_Listagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_ListagemPorDescricao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_ListagemPorDescricao" message="tns:IServicoPrincipal_Projeto_ListagemPorDescricao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_ListagemPorDescricaoResponse" message="tns:IServicoPrincipal_Projeto_ListagemPorDescricao_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicoPrincipal" type="tns:IServicoPrincipal">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Imagem_ListagemPorRelatorioDespesa">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Imagem_ListagemPorRelatorioDespesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Imagem_Incluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Imagem_Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Imagem_Excluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Imagem_Excluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_Listagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Colaborador_Listagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_ListagemPorNome">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Colaborador_ListagemPorNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Colaborador_PeloCodigo">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Colaborador_PeloCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FonteDespesa_Listagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/FonteDespesa_Listagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoDespesa_Listagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/TipoDespesa_Listagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Listagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_Listagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_ListagemPorDescricao">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorDescricao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_ListagemPorProjeto">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjeto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_ListagemPorRelatorio">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_Incluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatorioDespesa_Excluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_Excluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorData">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorColaborador">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorColaborador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPorDataColaborador">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaborador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_Listagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Projeto_Listagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_ListagemPorDescricao">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Projeto_ListagemPorDescricao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoPrincipal">
+    <wsdl:port name="BasicHttpBinding_IServicoPrincipal" binding="tns:BasicHttpBinding_IServicoPrincipal">
+      <soap:address location="http://localhost:1129/ServicoPrincipal.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

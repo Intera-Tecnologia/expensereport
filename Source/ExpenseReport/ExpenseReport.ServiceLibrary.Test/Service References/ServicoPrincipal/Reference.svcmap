@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aedbef21-4ec5-4cb9-9ac4-7db5ebe12e1c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1129/ServicoPrincipal.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicoPrincipal.wsdl" MetadataType="Wsdl" ID="a4b07486-336a-4fb0-bbdd-98f23ea8b80a" SourceId="1" SourceUrl="http://localhost:1129/ServicoPrincipal.svc?wsdl" />
+    <MetadataFile FileName="ServicoPrincipal.xsd" MetadataType="Schema" ID="5c52ef9b-ad91-4d48-a82d-ad9ac576ab2b" SourceId="1" SourceUrl="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicoPrincipal1.xsd" MetadataType="Schema" ID="7f518610-916a-4308-b724-16feeecabac0" SourceId="1" SourceUrl="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicoPrincipal.disco" MetadataType="Disco" ID="4143407d-1e4d-4fdd-98f8-1760a9515721" SourceId="1" SourceUrl="http://localhost:1129/ServicoPrincipal.svc?disco" />
+    <MetadataFile FileName="ServicoPrincipal2.xsd" MetadataType="Schema" ID="f44c2cae-aaf5-455e-9db9-14304b5fc04c" SourceId="1" SourceUrl="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

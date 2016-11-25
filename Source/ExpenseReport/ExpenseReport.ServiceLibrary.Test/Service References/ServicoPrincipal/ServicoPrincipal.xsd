@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1129/ServicoPrincipal.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" />
+  <xs:element name="Imagem_ListagemPorRelatorioDespesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelatorioDespesaID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Imagem_ListagemPorRelatorioDespesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Imagem_ListagemPorRelatorioDespesaResult" nillable="true" type="q1:ArrayOfImagem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Imagem_Incluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="imagem" nillable="true" type="q2:Imagem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Imagem_IncluirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Imagem_IncluirResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Imagem_Excluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="imagemID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Imagem_ExcluirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Imagem_ExcluirResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_Listagem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_ListagemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Colaborador_ListagemResult" nillable="true" type="q3:ArrayOfColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_ListagemPorNome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_ListagemPorNomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Colaborador_ListagemPorNomeResult" nillable="true" type="q4:ArrayOfColaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_PeloCodigo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colaboradorID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Colaborador_PeloCodigoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Colaborador_PeloCodigoResult" nillable="true" type="q5:Colaborador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FonteDespesa_Listagem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FonteDespesa_ListagemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="FonteDespesa_ListagemResult" nillable="true" type="q6:ArrayOfFonteDespesa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoDespesa_Listagem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoDespesa_ListagemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="TipoDespesa_ListagemResult" nillable="true" type="q7:ArrayOfTipoDespesa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_Listagem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_ListagemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Viagem_ListagemResult" nillable="true" type="q8:ArrayOfViagem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_ListagemPorDescricao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_ListagemPorDescricaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Viagem_ListagemPorDescricaoResult" nillable="true" type="q9:ArrayOfViagem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_ListagemPorProjeto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProjetoID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Viagem_ListagemPorProjetoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Viagem_ListagemPorProjetoResult" nillable="true" type="q10:ArrayOfViagem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_ListagemPorRelatorio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="relatorioID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_ListagemPorRelatorioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="RelatorioDespesa_ListagemPorRelatorioResult" nillable="true" type="q11:ArrayOfRelatorioDespesa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_Incluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="relatorioDespesa" nillable="true" type="q12:RelatorioDespesa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_IncluirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelatorioDespesa_IncluirResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_Excluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelatorioDespesaID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RelatorioDespesa_ExcluirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelatorioDespesa_ExcluirResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Relatorio_ListagemPorDataResult" nillable="true" type="q13:ArrayOfRelatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorColaborador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colaboradorID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorColaboradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Relatorio_ListagemPorColaboradorResult" nillable="true" type="q14:ArrayOfRelatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorDataColaborador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="colaboradorID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_ListagemPorDataColaboradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Relatorio_ListagemPorDataColaboradorResult" nillable="true" type="q15:ArrayOfRelatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Projeto_Listagem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Projeto_ListagemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemResult" nillable="true" type="q16:ArrayOfProjeto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Projeto_ListagemPorDescricao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Descrica" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Projeto_ListagemPorDescricaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemPorDescricaoResult" nillable="true" type="q17:ArrayOfProjeto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

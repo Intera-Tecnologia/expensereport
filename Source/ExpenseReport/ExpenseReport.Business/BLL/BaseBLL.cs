@@ -10,7 +10,7 @@ namespace ExpenseReport.Business.BLL
 
         public BaseBLL()
         {
-            string connection = ConfigurationManager
+            BaseBLL.StringConexao = ConfigurationManager
                 .ConnectionStrings["ExpenseReport"]
                 .ConnectionString;
         }

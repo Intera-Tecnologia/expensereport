@@ -53,9 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GetDataTest.cs" />
+    <Compile Include="FonteDespesaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceClient\Reference.cs">
+    <Compile Include="Service References\ServicoPrincipal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -66,31 +66,55 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\ServiceClient\ExpenseReport.ServiceLibrary.Model.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceClient\ExpenseReport.ServiceLibrary.Test.ServiceClient.CompositeType.datasource">
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.Colaborador.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceClient\service.wsdl" />
-    <None Include="Service References\ServiceClient\service.xsd">
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.FonteDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.Imagem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.Projeto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.Relatorio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.RelatorioDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.TipoDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ExpenseReport.ServiceLibrary.Test.ServicoPrincipal.Viagem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.wsdl" />
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceClient\service1.xsd">
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceClient\" />
+    <WCFMetadataStorage Include="Service References\ServicoPrincipal\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceClient\configuration91.svcinfo" />
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceClient\configuration.svcinfo" />
+    <None Include="Service References\ServicoPrincipal\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceClient\Reference.svcmap">
+    <None Include="Service References\ServicoPrincipal\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicoPrincipal\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

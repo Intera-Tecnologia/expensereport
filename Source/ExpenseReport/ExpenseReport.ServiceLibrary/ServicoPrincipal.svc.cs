@@ -13,7 +13,25 @@ namespace ExpenseReport.ServiceLibrary
     // NOTE: In order to launch WCF Test Client for testing this service, please select ServicoPrincipal.svc or ServicoPrincipal.svc.cs at the Solution Explorer and start debugging.
     public class ServicoPrincipal : IServicoPrincipal
     {
+        #region Imagem
+        public List<Imagem> Imagem_ListagemPorRelatorioDespesa(long RelatorioDespesaID)
+        {
+            ImagemBLL imagemBLL = new ImagemBLL();
+            return imagemBLL.Listagem(RelatorioDespesaID);
+        }
 
+        public long Imagem_Incluir(Imagem imagem)
+        {
+            ImagemBLL imagemBLL = new ImagemBLL();
+            return imagemBLL.Incluir(imagem);
+        }
+
+        public bool Imagem_Excluir(long imagemID)
+        {
+            ImagemBLL imagemBLL = new ImagemBLL();
+            return imagemBLL.Excluir(imagemID);
+        }
+        #endregion
 
         #region Colaborador
         public List<Colaborador> Colaborador_Listagem()
@@ -125,9 +143,7 @@ namespace ExpenseReport.ServiceLibrary
             ViagemBLL viagemBLL = new ViagemBLL();
             return viagemBLL.Listagem(Descricao);
         }
-
         
-
         #endregion
 
     }
