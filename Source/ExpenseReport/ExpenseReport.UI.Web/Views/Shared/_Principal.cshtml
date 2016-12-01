@@ -14,22 +14,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="~/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="~/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="~/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Sweet Alert Css -->
+    <link href="~/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- Morris Chart Css-->
-    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+    <link href="~/plugins/morrisjs/morris.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="css/themes/all-themes.css" rel="stylesheet" />
+    <link href="~/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Customização do Intera -->
+    <link href="~/css/intera.css" rel="stylesheet" />
 
     @RenderSection("Estilos", required: false)
 </head>
@@ -278,7 +284,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
+                    <img src="~/images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -314,8 +320,8 @@
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        @Html.ActionLink("Colaboradores","Index","Colaborador")
-                                        
+                                        @Html.ActionLink("Colaboradores", "Index", "Colaborador")
+
                                     </li>
                                     <li>
                                         <a href="#">Projeto</a>
@@ -349,13 +355,13 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="header">RELATÓRIOS</li>
 
                 </ul>
             </div>
             <!-- #Menu -->
-            
+
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
@@ -510,48 +516,77 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="~/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="~/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="../../plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="plugins/node-waves/waves.js"></script>
+    <script src="~/plugins/node-waves/waves.js"></script>
 
     <!-- Jquery CountTo Plugin Js -->
-    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+    <script src="~/plugins/jquery-countto/jquery.countTo.js"></script>
 
     <!-- Morris Plugin Js -->
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/morrisjs/morris.js"></script>
+    <script src="~/plugins/raphael/raphael.min.js"></script>
+    <script src="~/plugins/morrisjs/morris.js"></script>
 
     <!-- ChartJs -->
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
+    <script src="~/plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- Flot Charts Plugin Js -->
-    <script src="plugins/flot-charts/jquery.flot.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+    <script src="~/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="~/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="~/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="~/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="~/plugins/flot-charts/jquery.flot.time.js"></script>
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
     <!-- Custom Js -->
-    <script src="js/admin.js"></script>
-    <script src="js/pages/index.js"></script>
+    <script src="~/js/admin.js"></script>
+    <script src="~/js/pages/index.js"></script>
+    <script src="~/js/pages/forms/form-validation.js"></script>
 
     <!-- Demo Js -->
-    <script src="js/demo.js"></script>
+    <script src="~/js/demo.js"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>
 
 </html>
+
+<div class="modal fade" id="ModalExcluir" tabindex="-1" role="dialog" aria-labelledby="ModalExcluirlabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ModalExcluir-label">Excluir</h4>
+            </div>
+            <div class="modal-body">
+                <p>Deseja excluir realmente esse registro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">SIM</button>
+                <button type="button" class="btn btn-primary">NÃO</button>
+            </div>
+        </div>
+    </div>
+</div>

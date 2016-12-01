@@ -53,6 +53,14 @@ namespace ExpenseReport.Business.BLL
                 .Query<Colaborador>(strConsulta, new { ColaboradorID = colaboradorID })
                 .FirstOrDefault();
 
+            Token UserToken = Conexao
+                .Query<Token>(@"select * 
+                                from Token 
+                                where TokenID = @TokenID", new { TokenID = colaborador.TokenID })
+                .FirstOrDefault();
+
+            colaborador.UserToken = UserToken;
+
             return colaborador;
         }
 

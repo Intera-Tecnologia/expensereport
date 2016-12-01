@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\intera.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css" />
@@ -3513,6 +3514,7 @@
     <Content Include="Views\Shared\_Principal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Colaborador\Index.cshtml" />
+    <Content Include="Views\Colaborador\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3532,6 +3534,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\views\ColaboradorCadastro.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
