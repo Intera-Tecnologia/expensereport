@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro de Viagem";
+    Layout = "~/Views/Shared/_Principal.cshtml";
+}
+
+@section Estilos {
+    <link href="~/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+}
+
+
+
+@using (Html.BeginForm("Cadastro", "Colaborador", FormMethod.Post, new { @id = "form_validation" }))
+{
+    <div class="row clearfix">
+        <div class="col-md-12">
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Erro!</strong> Mensagem de Erro.
+            </div>
+
+            <div class="card">
+                <div class="header">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-md-2 col-sm-2">
+                            <label>Id</label>
+                            <input type="text" class="form-control" value="1" readonly />
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <label>Descricao</label>
+                            <input type="text" class="form-control" maxlength="100" value="" name="Descricao" />
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <label>Ida</label>
+                            <input type="text" class="form-control formata-data" id="txtIda" placeholder="dd/mm/yyyy">
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        
+                        <div class="col-md-2 col-sm-2">
+                            <label>Volta</label>
+                            <input type="text" class="form-control formata-data"  name="Volta" placeholder="dd/mm/yyyy" />
+                            <span class="label_erro" id="validaVolta">Campo obrigatório</span>
+                        </div>
+                        
+                        <div class="col-md-8 col-sm-8">
+                            <label>Projeto</label>
+                            <select class="form-control show-tick">
+                                <option value="0">BCOMS</option>
+                                <option value="1">TPE</option>
+                                <option value="2">SMR</option>
+                                <option value="2">P4</option>
+                            </select>
+                            <span class="label_erro" id="validaVolta">Campo obrigatório</span>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <label>Justificativa</label>
+                            <textarea class="form-control"></textarea>                            
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 text-right">
+                            <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
+                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    
+    <script src="~/Scripts/views/ViagemCadastro.js"></script>
+}

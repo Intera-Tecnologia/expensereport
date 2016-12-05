@@ -1,0 +1,257 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro de Relatório";
+    Layout = "~/Views/Shared/_Principal.cshtml";
+}
+@using (Html.BeginForm("Cadastro", "Relatorio", FormMethod.Post, new { @id = "form_validation" }))
+{
+    <div class="row clearfix">
+        <div class="col-md-12">
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Erro!</strong> Mensagem de Erro.
+            </div>
+
+            <div class="card">
+                <div class="header">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-md-2 col-sm-2">
+                            <label>Id</label>
+                            <input type="text" class="form-control" value="1" readonly />
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <label>Viagem</label>
+                            <select class="form-control">
+                                <option value="1">Malásia Out 2016</option>
+                                <option value="1">Eua Out 2016</option>
+                            </select>
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Diárias Recebidas</label>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="" name="Descricao" />
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Adiantamento Recebido</label>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="" name="Descricao" />
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <label>Moeda</label>
+                            <input type="text" class="form-control" maxlength="3" value="" name="Descricao" />
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Passagem Faturada</label>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="" name="Descricao" />
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3">
+                            <label>Colaborador</label>
+                            <select class="form-control">
+                                <option value="0">Carlos Vamberto</option>
+                                <option value="1">Rodrigo Bezerra</option>
+                                <option value="2">Addison Lima</option>
+                                <option value="3">Ronaldo Martins</option>
+                            </select>
+                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 text-right">
+                            <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
+                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Despesas</h2>
+                    <button type="button" class="btn btn-primary header-dropdown m-r--5" data-toggle="modal" data-target="#modal_adicionar">Adicionar</button>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="60px">#</th>
+                                    <th width="80px">Data</th>
+                                    <th width="80px">Fonte</th>
+                                    <th width="80px">Tipo</th>
+                                    <th>Descrição</th>
+                                    <th width="40px" title="Faturado">Fat</th>
+                                    <th width="85px">Valor US$</th>
+                                    <th width="85px">Valor R$</th>
+                                    <th width="95"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>01/10/2016</td>
+                                    <td>Cartão</td>
+                                    <td>Diária</td>
+                                    <td>Taxi WD / Hotel</td>
+                                    <td>
+                                        <i class="material-icons">check_circle</i>
+                                    </td>
+                                    <td class="text-right">1,50</td>
+                                    <td class="text-right">4,70</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas">
+                                            <span class="glyphicon glyphicon-cd"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>01/10/2016</td>
+                                    <td>Cartão</td>
+                                    <td>Diária</td>
+                                    <td>Taxi Hotel / WD</td>
+                                    <td></td>
+                                    <td class="text-right">1,80</td>
+                                    <td class="text-right">5,00</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+
+                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-cd"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>01/10/2016</td>
+                                    <td>Cartão</td>
+                                    <td>Diária</td>
+                                    <td>Taxi Hotel / WD</td>
+                                    <td></td>
+                                    <td class="text-right">1,80</td>
+                                    <td class="text-right">4,70</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+
+                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-cd"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>01/10/2016</td>
+                                    <td>Cartão</td>
+                                    <td>Diária</td>
+                                    <td>Taxi Hotel / WD</td>
+                                    <td></td>
+                                    <td class="text-right">1,80</td>
+                                    <td class="text-right">4,70</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-cd"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="5"></th>
+                                    <th class="text-right">TOTAL</th>
+                                    <th class="text-right">3,30</th>
+                                    <th class="text-right">4,70</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="modal fade" id="modal_adicionar" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Cadastro de Despesa</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-md-12 distancia_proximo">
+                        <label>Data</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="col-md-12 distancia_proximo">
+                        <label>Fonte</label>
+                        <select class="form-control">
+                            <option value="0">Credito</option>
+                            <option value="1">Dinheiro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 distancia_proximo" ">
+                        <label>Tipo</label>
+                        <select class="form-control">
+                            <option value="0">Diária</option>
+                            <option value="1">Transporte</option>
+                            <option value="1">Representação</option>
+                            <option value="1">Hospedagem</option>
+                            <option value="1">Cargas</option>
+                            <option value="1">Outras</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 distancia_proximo">
+                        <label>Descrição</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="col-md-12 distancia_proximo">
+                        <label>Faturado</label>
+                        <select class="form-control">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">SAVE CHANGES</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/Scripts/views/RelatorioCadastro.js"></script>
+}

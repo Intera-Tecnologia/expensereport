@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Gerenciar Mídeas";
+    Layout = "~/Views/Shared/_Principal.cshtml";
+}
+@using (Html.BeginForm("GerenciarMidea", "Relatorio", FormMethod.Post, new { @id = "form_validation" }))
+{
+    <div class="row clearfix">
+        <div class="col-md-12">
+
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Erro!</strong> Mensagem de Erro.
+            </div>
+
+            <div class="card">
+                <div class="header">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-md-2 col-sm-2">
+                            <label>Id</label>
+                            <input type="text" class="form-control" value="1" readonly />
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <label>Viagem</label>
+                            <input type="text" class="form-control" value="Malásia Out 2016" readonly />                            
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Diárias Recebidas</label>
+                            <input type="text" class="form-control formata-decimal-dolar text-right" maxlength="15" value="1.500,00" name="Descricao" readonly/>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Adiantamento Recebido</label>
+                            <input type="text" class="form-control formata-decimal-dolar text-right" maxlength="15" value="1.500,00" name="Descricao" readonly/>
+                            
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <label>Moeda</label>
+                            <input type="text" class="form-control" maxlength="3" value="USD" name="Descricao" readonly/>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <label>Passagem Faturada</label>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="Compra de Alimento - Almoço" name="Descricao" readonly/>
+                            
+                        </div>
+
+                        <div class="col-md-3 col-sm-3">
+                            <label>Colaborador</label>
+                            <input type="text" class="form-control" value="Carlos Vamberto" readonly />
+                        </div>
+
+                        
+                        
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="header">
+                    <h2>Mídeas</h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="60px">Id</th>
+                                    <th>Arquivo</th>
+                                    <th width="70px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>PKASDSASDASD.JPG</td>
+                                    <td>
+                                        <button class="btn btn-xs bg-black" title="Visualizar Mídea">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                        </button>
+                                        <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <td>PKASDSASDASD.JPG</td>
+                                    <td>
+                                        <button class="btn btn-xs bg-black" title="Visualizar Mídea">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                        </button>
+                                        <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>001</td>
+                                    <td>PKASDSASDASD.JPG</td>
+                                    <td>
+                                        <button class="btn btn-xs bg-black" title="Visualizar Mídea">
+                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                        </button>
+                                        <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+

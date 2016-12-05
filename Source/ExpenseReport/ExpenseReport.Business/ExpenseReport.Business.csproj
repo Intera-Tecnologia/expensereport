@@ -65,6 +65,7 @@
     <Compile Include="Entities\Relatorio.cs" />
     <Compile Include="Entities\RelatorioDespesa.cs" />
     <Compile Include="Entities\TipoDespesa.cs" />
+    <Compile Include="Entities\Token.cs" />
     <Compile Include="Entities\Viagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

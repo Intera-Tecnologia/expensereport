@@ -5,9 +5,12 @@ declare var $: JQueryStatic;
 
 class ColaboradorCadastroClass {
     init(): void {
-        $("#btnSavlar").on("click", () => {
-            alert("Entrou");
+        $("#btnSalvar").on("click", () => {                   
             (<any>$("#form_validation")).validate();
+        });
+
+        $("#btnCancelar").on("click", () => {
+            alert("Entrou 2");
         });
     }
 
@@ -15,6 +18,7 @@ class ColaboradorCadastroClass {
 }
 
 window.onload = () => {
+    
     var obj = new ColaboradorCadastroClass();
     obj.init();
 }

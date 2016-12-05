@@ -4,9 +4,11 @@ var ColaboradorCadastroClass = (function () {
     function ColaboradorCadastroClass() {
     }
     ColaboradorCadastroClass.prototype.init = function () {
-        $("#btnSavlar").on("click", function () {
-            alert("Entrou");
+        $("#btnSalvar").on("click", function () {
             $("#form_validation").validate();
+        });
+        $("#btnCancelar").on("click", function () {
+            alert("Entrou 2");
         });
     };
     return ColaboradorCadastroClass;

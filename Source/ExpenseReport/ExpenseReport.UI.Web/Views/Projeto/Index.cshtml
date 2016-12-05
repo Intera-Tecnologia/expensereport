@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Colaborador Listagem";
+    ViewBag.Title = "Projeto Listagem";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
 
@@ -28,13 +28,14 @@
             <div class="body bg-info">
                 <div class="row clearfix barra_busca" >
                     <div class="col-md-6">
-                        <input class="form-control" type="text" placeholder="Nome do Colaborador" />
+                        <input class="form-control" type="text" placeholder="Nome do Projeto" />
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-primary" type="button" title="Localizar">
+                            
                             <span class="glyphicon glyphicon-search"></span> Localizar
                         </button>
-                        <a href="/Colaborador/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
+                        <a href="/Projeto/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
                             <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
                         </a>
                     </div>
@@ -51,14 +52,18 @@
                                 <thead>
                                     <tr>
                                         <th width="70px">#</th>
-                                        <th>Nome do Colaborador</th>
+                                        <th>Projeto</th>
+                                        <th>Descricao</th>
+                                        <th>Centro de Custo</th>
                                         <th width="70px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Carlos Vamberto de Araujo Martins Filho</td>
+                                        <td>Projeto 001</td>
+                                        <td>Projeto 001</td>
+                                        <td>001</td>
                                         <td>
                                             <button class="btn btn-xs bg-black" title="Editar">
                                                 <span class="glyphicon glyphicon-edit"></span>
@@ -70,8 +75,10 @@
                                     </tr>
 
                                     <tr>
-                                        <td>2</td>
-                                        <td>Rodrigo Bezerra</td>
+                                        <td>1</td>
+                                        <td>Projeto 002</td>
+                                        <td>Projeto 002</td>
+                                        <td>002</td>
                                         <td>
                                             <button class="btn btn-xs bg-black" title="Editar">
                                                 <span class="glyphicon glyphicon-edit"></span>

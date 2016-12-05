@@ -17,16 +17,16 @@
     <link href="~/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="~/plugins/node-waves/waves.css" rel="stylesheet" />
+    @*<link href="~/plugins/node-waves/waves.css" rel="stylesheet" />*@
 
     <!-- Animation Css -->
-    <link href="~/plugins/animate-css/animate.css" rel="stylesheet" />
+    @*<link href="~/plugins/animate-css/animate.css" rel="stylesheet" />*@
 
     <!-- Sweet Alert Css -->
-    <link href="~/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    @*<link href="~/plugins/sweetalert/sweetalert.css" rel="stylesheet" />*@
 
     <!-- Morris Chart Css-->
-    <link href="~/plugins/morrisjs/morris.css" rel="stylesheet" />
+    @*<link href="~/plugins/morrisjs/morris.css" rel="stylesheet" />*@
 
     <!-- Custom Css -->
     <link href="~/css/style.css" rel="stylesheet">
@@ -78,7 +78,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">Expense Reporte v1.0</a>
+                @Html.ActionLink("Expense Report 1.0", "Index","Home",null,new { @class = "navbar-brand" })
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -321,36 +321,23 @@
                                 <ul class="ml-menu">
                                     <li>
                                         @Html.ActionLink("Colaboradores", "Index", "Colaborador")
-
                                     </li>
                                     <li>
-                                        <a href="#">Projeto</a>
+                                        @Html.ActionLink("Projeto", "Index", "Projeto")
                                     </li>
                                     <li>
-                                        <a href="#">Viagem</a>
+                                        @Html.ActionLink("Viagem", "Index", "Viagem")
                                     </li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Infobox</span>
+                                    <span>Movimento</span>
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                                    </li>
+                                        @Html.ActionLink("Relatório", "Index", "Relatorio")
+                                    </li>                                    
                                 </ul>
                             </li>
                         </ul>
@@ -522,7 +509,7 @@
     <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="~/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    @*<script src="~/plugins/bootstrap-select/js/bootstrap-select.js"></script>*@
 
     <!-- Slimscroll Plugin Js -->
     <script src="~/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
@@ -566,6 +553,14 @@
 
     <!-- Demo Js -->
     <script src="~/js/demo.js"></script>
+
+
+
+    <script src="~/Scripts/jquery.inputmask/inputmask.js"></script>
+    <script src="~/Scripts/jquery.inputmask/jquery.inputmask.js"></script>
+    <script src="~/Scripts/jquery.inputmask/inputmask.extensions.js"></script>
+    <script src="~/Scripts/jquery.inputmask/inputmask.date.extensions.js"></script>
+    <script src="~/Scripts/jquery.inputmask/inputmask.numeric.extensions.js"></script>
 
 
     @RenderSection("Scripts", required: false)

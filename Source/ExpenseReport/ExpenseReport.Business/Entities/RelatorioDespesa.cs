@@ -11,10 +11,12 @@ namespace ExpenseReport.Business.Entities
         public long TipoDespesaID { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
+        public decimal Valor { get; set; }
+        public bool Faturado { get; set; }
 
         public Relatorio Relatorio { get; set; }
         public FonteDespesa FonteDespesa { get; set; }
-        public TipoDespesa MyProperty { get; set; }
+        public TipoDespesa TipoDespesa { get; set; }
         public List<Imagem> Imagens { get; set; } = new List<Imagem>();
     }
 }

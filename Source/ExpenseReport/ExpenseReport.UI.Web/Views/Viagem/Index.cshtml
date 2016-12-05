@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Colaborador Listagem";
+    ViewBag.Title = "Viagem Listagem";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
 
@@ -26,15 +26,15 @@
                 <h2>@ViewBag.Title</h2>
             </div>
             <div class="body bg-info">
-                <div class="row clearfix barra_busca" >
+                <div class="row clearfix barra_busca">
                     <div class="col-md-6">
-                        <input class="form-control" type="text" placeholder="Nome do Colaborador" />
+                        <input class="form-control" type="text" placeholder="Descrição" />
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-primary" type="button" title="Localizar">
                             <span class="glyphicon glyphicon-search"></span> Localizar
                         </button>
-                        <a href="/Colaborador/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
+                        <a href="/Viagem/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
                             <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
                         </a>
                     </div>
@@ -51,32 +51,41 @@
                                 <thead>
                                     <tr>
                                         <th width="70px">#</th>
-                                        <th>Nome do Colaborador</th>
-                                        <th width="70px"></th>
+                                        <th>Descrição</th>
+                                        <th>Ida</th>
+                                        <th>Volta</th>
+                                        <th>Projeto</th>
+                                        <th width="100px"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Carlos Vamberto de Araujo Martins Filho</td>
+                                        <td>Malásia Out 2016</td>
+                                        <td>30/10/2016</td>
+                                        <td>30/11/2016</td>
+                                        <td>BCOMS</td>
                                         <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
+                                            <button class="btn btn-sm btn-link" title="Editar">
                                                 <span class="glyphicon glyphicon-edit"></span>
                                             </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td>2</td>
-                                        <td>Rodrigo Bezerra</td>
+                                        <td>1</td>
+                                        <td>USA Out 2016</td>
+                                        <td>30/10/2016</td>
+                                        <td>30/11/2016</td>
+                                        <td>TPE</td>
                                         <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
+                                            <button class="btn btn-sm btn-link" title="Editar">
                                                 <span class="glyphicon glyphicon-edit"></span>
                                             </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                            <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </td>

@@ -2,3 +2,16 @@
     padding-bottom:5px !important; 
     height:30px;
 }
+
+.label_erro {
+    color:red;
+    font-size:12px;
+}
+
+.checkbox_form {
+    padding-top:30px;
+}
+
+.distancia_proximo {
+    padding-bottom:20px;
+}

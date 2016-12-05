@@ -28,8 +28,8 @@ namespace ExpenseReport.Business.BLL
             this.InicializarConexao();
 
             string strConsulta =
-                @"INSERT INTO RelatorioDespesa (RelatorioID, FonteDespesaID, TipoDespesaID, Descricao, Data)
-                  VALUES (@RelatorioID, @FonteDespesaID, @TipoDespesaID, @Descricao, @Data)
+                @"INSERT INTO RelatorioDespesa (RelatorioID, FonteDespesaID, TipoDespesaID, Descricao, Data, Valor, Faturado)
+                  VALUES (@RelatorioID, @FonteDespesaID, @TipoDespesaID, @Descricao, @Data, @Valor, @Faturado)
                   SELECT CAST(SCOPE_IDENTITY() AS bigint)";
 
             long RelatorioDespesaID = Conexao
