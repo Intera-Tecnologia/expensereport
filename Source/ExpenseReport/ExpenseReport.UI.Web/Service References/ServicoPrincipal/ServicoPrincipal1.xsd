@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfImagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Imagem" nillable="true" type="tns:Imagem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImagem" nillable="true" type="tns:ArrayOfImagem" />
+  <xs:complexType name="Imagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImagemID" type="xs:long" />
+      <xs:element minOccurs="0" name="NomeArquivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatorioDespesa" nillable="true" type="tns:RelatorioDespesa" />
+      <xs:element minOccurs="0" name="RelatorioDespesaID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Imagem" nillable="true" type="tns:Imagem" />
+  <xs:complexType name="RelatorioDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Faturado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FonteDespesa" nillable="true" type="tns:FonteDespesa" />
+      <xs:element minOccurs="0" name="FonteDespesaID" type="xs:long" />
+      <xs:element minOccurs="0" name="Imagens" nillable="true" type="tns:ArrayOfImagem" />
+      <xs:element minOccurs="0" name="Relatorio" nillable="true" type="tns:Relatorio" />
+      <xs:element minOccurs="0" name="RelatorioDespesaID" type="xs:long" />
+      <xs:element minOccurs="0" name="RelatorioID" type="xs:long" />
+      <xs:element minOccurs="0" name="TipoDespesa" nillable="true" type="tns:TipoDespesa" />
+      <xs:element minOccurs="0" name="TipoDespesaID" type="xs:long" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelatorioDespesa" nillable="true" type="tns:RelatorioDespesa" />
+  <xs:complexType name="FonteDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FonteDespesaID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FonteDespesa" nillable="true" type="tns:FonteDespesa" />
+  <xs:complexType name="Relatorio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adiantamento" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CambioDia" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Colaborador" nillable="true" type="tns:Colaborador" />
+      <xs:element minOccurs="0" name="ColaboradorID" type="xs:long" />
+      <xs:element minOccurs="0" name="DataEntrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataViagemFim" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataViagemInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Despesas" nillable="true" type="tns:ArrayOfRelatorioDespesa" />
+      <xs:element minOccurs="0" name="DiariasRecebidas" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Moeda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassagemFaturada" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RelatorioID" type="xs:long" />
+      <xs:element minOccurs="0" name="Viagem" nillable="true" type="tns:Viagem" />
+      <xs:element minOccurs="0" name="ViagemID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Relatorio" nillable="true" type="tns:Relatorio" />
+  <xs:complexType name="Colaborador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColaboradorID" type="xs:long" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Relatorios" nillable="true" type="tns:ArrayOfRelatorio" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TokenID" type="xs:long" />
+      <xs:element minOccurs="0" name="UserToken" nillable="true" type="tns:Token" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Colaborador" nillable="true" type="tns:Colaborador" />
+  <xs:complexType name="ArrayOfRelatorio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Relatorio" nillable="true" type="tns:Relatorio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelatorio" nillable="true" type="tns:ArrayOfRelatorio" />
+  <xs:complexType name="Token">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="ArrayOfRelatorioDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelatorioDespesa" nillable="true" type="tns:RelatorioDespesa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelatorioDespesa" nillable="true" type="tns:ArrayOfRelatorioDespesa" />
+  <xs:complexType name="Viagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFim" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Justificativa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Projeto" nillable="true" type="tns:Projeto" />
+      <xs:element minOccurs="0" name="ProjetoID" type="xs:long" />
+      <xs:element minOccurs="0" name="Relatorios" nillable="true" type="tns:ArrayOfRelatorio" />
+      <xs:element minOccurs="0" name="ViagemID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Viagem" nillable="true" type="tns:Viagem" />
+  <xs:complexType name="Projeto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CentroDeCusto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Programa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjetoID" type="xs:long" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Projeto" nillable="true" type="tns:Projeto" />
+  <xs:complexType name="TipoDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDespesaID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoDespesa" nillable="true" type="tns:TipoDespesa" />
+  <xs:complexType name="ArrayOfColaborador">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Colaborador" nillable="true" type="tns:Colaborador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfColaborador" nillable="true" type="tns:ArrayOfColaborador" />
+  <xs:complexType name="ArrayOfFonteDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FonteDespesa" nillable="true" type="tns:FonteDespesa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFonteDespesa" nillable="true" type="tns:ArrayOfFonteDespesa" />
+  <xs:complexType name="ArrayOfTipoDespesa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoDespesa" nillable="true" type="tns:TipoDespesa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoDespesa" nillable="true" type="tns:ArrayOfTipoDespesa" />
+  <xs:complexType name="ArrayOfViagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Viagem" nillable="true" type="tns:Viagem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViagem" nillable="true" type="tns:ArrayOfViagem" />
+  <xs:complexType name="ArrayOfProjeto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Projeto" nillable="true" type="tns:Projeto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjeto" nillable="true" type="tns:ArrayOfProjeto" />
+</xs:schema>

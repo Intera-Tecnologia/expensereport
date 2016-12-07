@@ -1,4 +1,4 @@
-﻿
+﻿@model ExpenseReport.UI.Web.ViewModel.ProjetoCadastroViewModel
 @{
     ViewBag.Title = "Cadastro de Projeto";
     Layout = "~/Views/Shared/_Principal.cshtml";
@@ -23,27 +23,33 @@
                     <div class="row clearfix">
                         <div class="col-md-2 col-sm-2">
                             <label>Id</label>
-                            <input type="text" class="form-control" value="1" readonly />
+                            @Html.TextBoxFor(m => m.Projeto.ProjetoID, null, new { @class = "form-control", @readonly = "readonly" })
+                            @*<input type="text" class="form-control" value="1" readonly />*@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <label>Descricao</label>
-                            <input type="text" class="form-control" maxlength="100" value="" name="Descricao" />
+                            @Html.TextBoxFor(m => m.Projeto.Descricao, null, new { @class = "form-control", @maxlength = "100" })
+                            @*<input type="text" class="form-control" maxlength="100" value="" name="Descricao" />*@
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
                         <div class="col-md-7 col-sm-7">
                             <label>Programa</label>
-                            <input type="text" class="form-control" maxlength="100" value="" name="Programa" />
+                            @Html.TextBoxFor(m => m.Projeto.Programa, null, new { @class = "form-control", @maxlength = "100" })
+                            @*<input type="text" class="form-control" maxlength="100" value="" name="Programa" />*@
                             <span class="label_erro" id="validaprograma">Campo obrigatório</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Centro de Custo</label>
-                            <input type="text" class="form-control" maxlength="30" value="" name="CentroDeCusto" />
+                            @Html.TextBoxFor(m => m.Projeto.CentroDeCusto, null, new { @class = "form-control", @maxlength = "100" })
+                            @*<input type="text" class="form-control" maxlength="30" value="" name="CentroDeCusto" />*@
                             <span class="label_erro" id="validaCentroDeCusto">Campo obrigatório</span>
                         </div>
-                        <div class="col-md-2 col-sm-2 checkbox_form" >                            
-                            <input type="checkbox" id="basic_checkbox_2" class="filled-in chk-col-red" checked />
+
+                        <div class="col-md-2 col-sm-2 checkbox_form">
+                            <input type="checkbox" id="Projeto_Status" class="filled-in chk-col-red" checked name="Projeto.Status"/>
                             <label for="basic_checkbox_2">Status</label>
                         </div>
+
                         <div class="col-md-12 col-sm-12 text-right">
                             <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
                             <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>

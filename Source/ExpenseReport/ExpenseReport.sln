@@ -23,6 +23,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseReport.Business.Test", "ExpenseReport.Business.Test\ExpenseReport.Business.Test.csproj", "{1108228A-5155-4C11-8676-0158F00F6BD5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseReport.UI.Web", "ExpenseReport.UI.Web\ExpenseReport.UI.Web.csproj", "{7508EB79-2DA6-4B84-9042-C4A5B9E5D2E2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EAD4D33-0752-4C7F-9DFE-C6F14B749BF8} = {2EAD4D33-0752-4C7F-9DFE-C6F14B749BF8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

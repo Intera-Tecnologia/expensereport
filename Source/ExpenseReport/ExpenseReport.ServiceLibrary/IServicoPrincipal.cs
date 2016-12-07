@@ -80,6 +80,13 @@ namespace ExpenseReport.ServiceLibrary
 
         [OperationContract]
         List<Projeto> Projeto_ListagemPorDescricao(string Descrica);
+
+        [OperationContract]
+        bool Projeto_Excluir(long ProjetoID);
+
+        [OperationContract]
+        long Projeto_Incluir(Projeto projeto);
+        
         #endregion
     }
 }

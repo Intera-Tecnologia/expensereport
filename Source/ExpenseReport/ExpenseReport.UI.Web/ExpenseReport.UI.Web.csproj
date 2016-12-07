@@ -50,6 +50,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -3429,6 +3431,37 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.Colaborador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.FonteDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.Imagem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.Projeto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.Relatorio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.RelatorioDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.TipoDespesa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServicoPrincipal\ExpenseReport.UI.Web.ServicoPrincipal.Viagem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.disco" />
+    <None Include="Service References\ServicoPrincipal\configuration91.svcinfo" />
+    <None Include="Service References\ServicoPrincipal\configuration.svcinfo" />
+    <None Include="Service References\ServicoPrincipal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -3442,8 +3475,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServicoPrincipal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Constantes.cs" />
     <Compile Include="Utils\Retorno.cs" />
     <Compile Include="Utils\RetornoListagem.cs" />
+    <Compile Include="ViewModel\ProjetoCadastroViewModel.cs" />
+    <Compile Include="ViewModel\ProjetoListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -3570,6 +3611,16 @@
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\Relatorio\Cadastro.cshtml" />
     <Content Include="Views\Relatorio\GerenciarMideas.cshtml" />
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.wsdl" />
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicoPrincipal\ServicoPrincipal2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3581,7 +3632,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Contents\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -3591,8 +3641,15 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.inputmask.d.ts" />
     <TypeScriptCompile Include="Scripts\views\ColaboradorCadastro.ts" />
+    <TypeScriptCompile Include="Scripts\views\ProjetoListagem.ts" />
     <TypeScriptCompile Include="Scripts\views\RelatorioCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ViagemCadastro.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicoPrincipal\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

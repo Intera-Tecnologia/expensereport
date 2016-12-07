@@ -34,10 +34,37 @@ namespace ExpenseReport.Business.BLL
                 ORDER BY Descricao";
 
             List<Projeto> lista = Conexao
-                .Query<Projeto>(strConsulta, Descricao)
+                .Query<Projeto>(strConsulta, new { Descricao = Descricao })
                 .ToList();
 
             return lista;
+        }
+
+        public bool Excluir(long ProjetoID)
+        {
+            this.InicializarConexao();
+
+            string strConsulta =
+                @"DELETE FROM Projeto
+                  WHERE ProjetoID = @ProjetoID";
+
+            return Conexao.Execute(strConsulta, new { ProjetoID = ProjetoID }) > 0;
+        }
+
+        public long Incluir(Projeto projeto)
+        {
+            this.InicializarConexao();
+
+            string strConsulta =
+                @"INSERT INTO Projeto (Descricao, Programa, CentroDeCusto, Status)
+                  VALUES (@Descricao, @Programa, @CentroDeCusto, @Status)
+                  SELECT CAST(SCOPE_IDENTITY() AS bigint)";
+
+            long ProjetoID = Conexao
+                .Query(strConsulta, projeto)
+                .Single();
+
+            return ProjetoID;
         }
     }
 }

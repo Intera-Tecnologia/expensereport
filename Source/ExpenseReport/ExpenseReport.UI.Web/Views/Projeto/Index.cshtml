@@ -1,38 +1,48 @@
-﻿
+﻿@model ExpenseReport.UI.Web.ViewModel.ProjetoListViewModel
 @{
     ViewBag.Title = "Projeto Listagem";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Projeto", null, FormMethod.Post, new { @id="formProjeto" } ))
+{
+    <input type="hidden" name="Acao" id="Acao" value="" />
+    <input type="hidden" name="ProjetoIDExcluir" id="ProjetoIDExcluir" value="" />
+
+
 <div class="row clearfix">
     <div class="col-md-12">
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Erro!</strong> Mensagem de Erro.
-        </div>
+        @if (Model.Retorno.RetornouErro)
+        {
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Erro!</strong> @Model.Retorno.MensagemErro
+            </div>
+        }
 
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Sucesso!</strong> Mensagem de Sucesso.
-        </div>
-
+        @if (Model.Retorno.RetornouSucesso)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
+            </div>
+        }
 
         <div class="card">
             <div class="header">
                 <h2>@ViewBag.Title</h2>
             </div>
             <div class="body bg-info">
-                <div class="row clearfix barra_busca" >
+                <div class="row clearfix barra_busca">
                     <div class="col-md-6">
-                        <input class="form-control" type="text" placeholder="Nome do Projeto" />
+                        <input class="form-control" name="Filtro" type="text" placeholder="Nome do Projeto" value="@Model.Filtro"/>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-primary" type="button" title="Localizar">
-                            
+                        <button class="btn btn-primary" type="submit" title="Localizar" id="btnLocalizar">
                             <span class="glyphicon glyphicon-search"></span> Localizar
                         </button>
                         <a href="/Projeto/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
@@ -48,48 +58,48 @@
                 <div class="row clearfix">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th width="70px">#</th>
-                                        <th>Projeto</th>
-                                        <th>Descricao</th>
-                                        <th>Centro de Custo</th>
-                                        <th width="70px"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Projeto 001</td>
-                                        <td>Projeto 001</td>
-                                        <td>001</td>
-                                        <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
-                                                <span class="glyphicon glyphicon-edit"></span>
-                                            </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                                <span class="glyphicon glyphicon-trash"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Projeto 002</td>
-                                        <td>Projeto 002</td>
-                                        <td>002</td>
-                                        <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
-                                                <span class="glyphicon glyphicon-edit"></span>
-                                            </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                                <span class="glyphicon glyphicon-trash"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            @if (Model.Listagem == null || Model.Listagem.Count() == 0)
+                            {
+                                <div class="text-center">
+                                    <label>Nenhum registro encontrado para a consulta.</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="70px">#</th>
+                                            <th>Programa</th>
+                                            <th>Descricao</th>
+                                            <th>Centro de Custo</th>
+                                            <th width="70px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto in Model.Listagem)
+                                        {
+                                            <tr>
+                                                <td>@projeto.ProjetoID</td>
+                                                <td>@projeto.Programa</td>
+                                                <td>@projeto.Descricao</td>
+                                                <td>@projeto.CentroDeCusto</td>
+                                                <td>
+                                                    <button class="btn btn-xs bg-black" title="Editar">
+                                                        <span class="glyphicon glyphicon-edit"></span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-xs btn-danger btnExcluir" title="Remover" data-toggle="modal" data-target="#ModalExcluir" data-id="@projeto.ProjetoID">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -97,5 +107,8 @@
         </div>
     </div>
 </div>
+}
 
-
+@section Scripts {
+    <script src="~/Scripts/views/ProjetoListagem.js"></script>
+}
