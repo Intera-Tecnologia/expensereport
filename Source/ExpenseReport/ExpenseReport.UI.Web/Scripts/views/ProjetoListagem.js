@@ -5,6 +5,7 @@ var btnSim = $("#btnSim");
 var form = $("#formProjeto");
 var Acao = $("#Acao");
 var btnExcluirList = $(".btnExcluir");
+var btnEditarList = $(".btnEditar");
 var ProjetoIDExcluir = $("#ProjetoIDExcluir");
 var ProjetoListagemTS = (function () {
     function ProjetoListagemTS() {
@@ -26,6 +27,10 @@ var ProjetoListagemTS = (function () {
             var id = $(e.currentTarget).data("id");
             Acao.val("R"); // Remover
             ProjetoIDExcluir.val(id);
+        });
+        btnEditarList.on("click", function (e) {
+            var id = $(e.currentTarget).data("id");
+            window.location.href = "/Projeto/Cadastro?id=" + id;
         });
     };
     return ProjetoListagemTS;

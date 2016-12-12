@@ -3641,6 +3641,8 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.inputmask.d.ts" />
     <TypeScriptCompile Include="Scripts\views\ColaboradorCadastro.ts" />
+    <TypeScriptCompile Include="Scripts\views\Constantes.ts" />
+    <TypeScriptCompile Include="Scripts\views\ProjetoCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ProjetoListagem.ts" />
     <TypeScriptCompile Include="Scripts\views\RelatorioCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ViagemCadastro.ts" />

@@ -1271,6 +1271,18 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_Incluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_IncluirResponse")]
         System.Threading.Tasks.Task<long> Projeto_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_AlterarResponse")]
+        bool Projeto_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_AlterarResponse")]
+        System.Threading.Tasks.Task<bool> Projeto_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_PorID", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_PorIDResponse")]
+        ExpenseReport.UI.Web.ServicoPrincipal.Projeto Projeto_PorID(long ProjetoID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_PorID", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_PorIDResponse")]
+        System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Projeto> Projeto_PorIDAsync(long ProjetoID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1466,6 +1478,22 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         
         public System.Threading.Tasks.Task<long> Projeto_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto) {
             return base.Channel.Projeto_IncluirAsync(projeto);
+        }
+        
+        public bool Projeto_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto) {
+            return base.Channel.Projeto_Alterar(projeto);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Projeto_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Projeto projeto) {
+            return base.Channel.Projeto_AlterarAsync(projeto);
+        }
+        
+        public ExpenseReport.UI.Web.ServicoPrincipal.Projeto Projeto_PorID(long ProjetoID) {
+            return base.Channel.Projeto_PorID(ProjetoID);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Projeto> Projeto_PorIDAsync(long ProjetoID) {
+            return base.Channel.Projeto_PorIDAsync(ProjetoID);
         }
     }
 }

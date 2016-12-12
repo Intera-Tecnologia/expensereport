@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using ExpenseReport.Business.DTO;
 using ExpenseReport.Business.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,18 +54,77 @@ namespace ExpenseReport.Business.BLL
 
         public long Incluir(Projeto projeto)
         {
-            this.InicializarConexao();
+            long id = 0;
+            try
+            {
+                this.InicializarConexao();
 
-            string strConsulta =
-                @"INSERT INTO Projeto (Descricao, Programa, CentroDeCusto, Status)
+                string strConsulta =
+                    @"INSERT INTO Projeto (Descricao, Programa, CentroDeCusto, Status)
                   VALUES (@Descricao, @Programa, @CentroDeCusto, @Status)
-                  SELECT CAST(SCOPE_IDENTITY() AS bigint)";
+                  SELECT CAST(SCOPE_IDENTITY() AS bigint) AS ID";
 
-            long ProjetoID = Conexao
-                .Query(strConsulta, projeto)
-                .Single();
+                var obj = Conexao
+                    .Query<RetornoIncluirDTO>(strConsulta, projeto)
+                    .FirstOrDefault();
 
-            return ProjetoID;
+                id = obj.ID;
+            }
+            catch (System.Exception)
+            {
+
+                return id;
+            }
+
+            return id;
+        }
+
+        public bool Alterar(Projeto projeto)
+        {
+            try
+            {
+                this.InicializarConexao();
+
+                string strConsulta =
+                    @"UPDATE Projeto 
+                  SET Descricao = @Descricao,
+                      Programa = @Programa,
+                      CentroDeCusto = @CentroDeCusto ,
+                      Status = @Status
+                  WHERE ProjetoID = @ProjetoID";
+
+                var obj = Conexao
+                    .Query<RetornoIncluirDTO>(strConsulta, projeto)
+                    .FirstOrDefault();
+            }
+            catch (System.Exception ex)
+            {
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public Projeto ProjetoPorID(long ProjetoID)
+        {
+            try
+            {
+                this.InicializarConexao();
+
+                string strConsulta =
+                    @"select * from Projeto where ProjetoID = @ProjetoID";
+
+                Projeto obj = Conexao
+                    .Query<Projeto>(strConsulta, new { ProjetoID = ProjetoID })
+                    .FirstOrDefault();
+
+                return obj;
+            }
+            catch (System.Exception)
+            {
+                return null;
+            }
         }
     }
 }

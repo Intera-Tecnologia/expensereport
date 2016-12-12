@@ -3,17 +3,29 @@
     ViewBag.Title = "Cadastro de Projeto";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
-@using (Html.BeginForm("Cadastro", "Colaborador", FormMethod.Post, new { @id = "form_validation" }))
+@using (Html.BeginForm("Cadastro", "Projeto", FormMethod.Post, new { @id = "form" }))
 {
     <div class="row clearfix">
         <div class="col-md-12">
+            @if (Model.Retorno != null && Model.Retorno.RetornouErro)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Erro!</strong> @Model.Retorno.MensagemErro
+                </div>
+            }
 
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Erro!</strong> Mensagem de Erro.
-            </div>
+            @if (Model.Retorno.RetornouSucesso)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
+                </div>
+            }
 
             <div class="card">
                 <div class="header">
@@ -23,36 +35,48 @@
                     <div class="row clearfix">
                         <div class="col-md-2 col-sm-2">
                             <label>Id</label>
-                            @Html.TextBoxFor(m => m.Projeto.ProjetoID, null, new { @class = "form-control", @readonly = "readonly" })
-                            @*<input type="text" class="form-control" value="1" readonly />*@
+                            <input type="text" class="form-control" readonly="readonly" autocomplete="off" value="@Model.ProjetoID" name="ProjetoID" id="ProjetoID"/>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <label>Descricao</label>
-                            @Html.TextBoxFor(m => m.Projeto.Descricao, null, new { @class = "form-control", @maxlength = "100" })
-                            @*<input type="text" class="form-control" maxlength="100" value="" name="Descricao" />*@
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <label>Descricao <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" autocomplete="off" value="@Model.Descricao" maxlength="100" id="Descricao" name="Descricao"/>                            
+                            <span class="label_erro" id="validaDescricao">&nbsp;</span>
                         </div>
-                        <div class="col-md-7 col-sm-7">
-                            <label>Programa</label>
-                            @Html.TextBoxFor(m => m.Projeto.Programa, null, new { @class = "form-control", @maxlength = "100" })
-                            @*<input type="text" class="form-control" maxlength="100" value="" name="Programa" />*@
-                            <span class="label_erro" id="validaprograma">Campo obrigatório</span>
+                        <div class="col-md-5 col-sm-5">
+                            <label>Programa <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" autocomplete="off" value="@Model.Programa" maxlength="100" id="Programa" name="Programa"/>                            
+                           
+                            <span class="label_erro" id="validaPrograma">&nbsp;</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
-                            <label>Centro de Custo</label>
-                            @Html.TextBoxFor(m => m.Projeto.CentroDeCusto, null, new { @class = "form-control", @maxlength = "100" })
-                            @*<input type="text" class="form-control" maxlength="30" value="" name="CentroDeCusto" />*@
-                            <span class="label_erro" id="validaCentroDeCusto">Campo obrigatório</span>
+                            <label>Centro de Custo <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" autocomplete="off" value="@Model.CentroDeCusto" maxlength="100" id="CentroDeCusto" name="CentroDeCusto" />                                   
+                            <span class="label_erro" id="validaCentroDeCusto">&nbsp;</span>
                         </div>
 
-                        <div class="col-md-2 col-sm-2 checkbox_form">
-                            <input type="checkbox" id="Projeto_Status" class="filled-in chk-col-red" checked name="Projeto.Status"/>
-                            <label for="basic_checkbox_2">Status</label>
+                        <div class="col-md-2 col-sm-2">
+                            <label for="basic_checkbox_2">Status <span class="text-danger">*</span></label>
+                            <select class="form-control" name="Status" id="Status">
+                                <option value="A">Aberto</option>
+                                <option value="F">Fechado</option>
+                            </select>
+                            <span class="label_erro" id="validaStatus">&nbsp;</span>
                         </div>
 
                         <div class="col-md-12 col-sm-12 text-right">
-                            <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
-                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
+                            @if (Model.Retorno.RetornouSucesso == false)
+                            {
+                                <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
+                                <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-primary" id="btnCancelar">Retornar</button>
+                            }
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -63,4 +87,7 @@
 
 }
 
-<script src="~/Scripts/views/ColaboradorCadastro.js"></script>
+@section Scripts {
+    <script src="~/Scripts/views/Constantes.js"></script>
+    <script src="~/Scripts/views/ProjetoCadastro.js"></script>
+}

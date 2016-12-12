@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExpenseReport.UI.Web.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ExpenseReport.UI.Web.Controllers
 {
+    
     public class ProjetoController : Controller
     {
         // GET: Projeto
@@ -56,27 +58,62 @@ namespace ExpenseReport.UI.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Cadastro()
-        {
-            return View(new ViewModel.ProjetoCadastroViewModel());
-        }
+        
 
         [HttpPost]
+        [OutputCacheAttribute(VaryByParam = "*", Duration = 0, NoStore = true)]
         public ActionResult Cadastro(ViewModel.ProjetoCadastroViewModel viewModel)
         {
             try
             {
                 ServicoPrincipal.ServicoPrincipalClient servico = new ServicoPrincipal.ServicoPrincipalClient();
-                long projetoID = servico.Projeto_Incluir(viewModel.Projeto);
-                if (projetoID == 0)
+
+                if (viewModel.ProjetoID == 0) // incluir
                 {
-                    viewModel.Retorno.RetornouErro = true;
-                    viewModel.Retorno.MensagemErro = Utils.Constantes.MENSAGEM_ERRO_INCLUIR;
+                    long projetoID = servico.Projeto_Incluir(new ServicoPrincipal.Projeto
+                    {
+                        CentroDeCusto = viewModel.CentroDeCusto,
+                        Descricao = viewModel.Descricao,
+                        ExtensionData = viewModel.ExtensionData,
+                        Programa = viewModel.Programa,
+                        ProjetoID = viewModel.ProjetoID,
+                        Status = viewModel.Status
+                    });
+
+                    if (projetoID == 0)
+                    {
+                        viewModel.Retorno.RetornouErro = true;
+                        viewModel.Retorno.MensagemErro = Utils.Constantes.MENSAGEM_ERRO_INCLUIR;
+                    }
+                    else
+                    {
+                        viewModel.ProjetoID = projetoID;
+                        viewModel.Retorno.RetornouSucesso = true;
+                        viewModel.Retorno.MensagemSucesso = Utils.Constantes.MENSAGEM_SUCESSO_INCLUIR;
+                    }
+                
                 }
-                else
+                else // alterar
                 {
-                    viewModel.Retorno.RetornouSucesso = true;
-                    viewModel.Retorno.MensagemSucesso = Utils.Constantes.MENSAGEM_SUCESSO_INCLUIR;
+                    if (servico.Projeto_Alterar(new ServicoPrincipal.Projeto
+                    {
+                        CentroDeCusto = viewModel.CentroDeCusto,
+                        Descricao = viewModel.Descricao,
+                        ExtensionData = viewModel.ExtensionData,
+                        Programa = viewModel.Programa,
+                        ProjetoID = viewModel.ProjetoID,
+                        Status = viewModel.Status
+                    }) == true)
+                    {
+                        viewModel.Retorno.RetornouSucesso = true;
+                        viewModel.Retorno.MensagemSucesso = Utils.Constantes.MENSAGEM_SUCESSO_ALTERAR;
+                    }
+                    else
+                    {
+                        viewModel.Retorno.RetornouErro = true;
+                        viewModel.Retorno.MensagemErro = Utils.Constantes.MENSAGEM_ERRO_ALTERAR;
+
+                    }
                 }
             }
             catch (Exception)
@@ -86,6 +123,34 @@ namespace ExpenseReport.UI.Web.Controllers
             }
 
             return View(viewModel);
+        }
+
+        
+        [OutputCacheAttribute(VaryByParam = "*", Duration = 0, NoStore = true)]
+        public ActionResult Cadastro(long? id)
+        {
+            try
+            {
+                if (id == null) return View(new ProjetoCadastroViewModel());
+
+                ServicoPrincipal.ServicoPrincipalClient servico = new ServicoPrincipal.ServicoPrincipalClient();
+                ServicoPrincipal.Projeto projeto = servico.Projeto_PorID(id.Value);
+                ProjetoCadastroViewModel viewModel = new ProjetoCadastroViewModel()
+                {
+                    CentroDeCusto = projeto.CentroDeCusto,
+                    Descricao = projeto.Descricao,
+                    Programa = projeto.Programa,
+                    ProjetoID = projeto.ProjetoID,
+                    Status = projeto.Status
+                };
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return View(new ProjetoCadastroViewModel());
+            }
+            
         }
 
     }

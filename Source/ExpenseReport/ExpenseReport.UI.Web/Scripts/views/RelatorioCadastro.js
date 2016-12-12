@@ -6,7 +6,14 @@ var RelatorioCadastroClass = (function () {
     }
     RelatorioCadastroClass.prototype.init = function () {
         $(".formata-decimal-dolar")
-            .inputmask('US$ 99.999,99', { rightAlign: true, numericInput: true });
+            .inputmask('numeric', {
+            radixPoint: ",",
+            groupSeparator: ".",
+            digits: 2,
+            autoGroup: true,
+            //  prefix: '$', //No Space, this will truncate the first character
+            rightAlign: true,
+            oncleared: function () { self.Value(''); } });
     };
     return RelatorioCadastroClass;
 }());

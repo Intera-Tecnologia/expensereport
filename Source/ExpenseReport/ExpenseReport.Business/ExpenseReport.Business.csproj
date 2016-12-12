@@ -58,6 +58,7 @@
     <Compile Include="BLL\RelatorioDespesaBLL.cs" />
     <Compile Include="BLL\TipoDespesaBLL.cs" />
     <Compile Include="BLL\ViagemBLL.cs" />
+    <Compile Include="DTO\RetornoIncluirDTO.cs" />
     <Compile Include="Entities\Colaborador.cs" />
     <Compile Include="Entities\FonteDespesa.cs" />
     <Compile Include="Entities\Imagem.cs" />
@@ -69,9 +70,7 @@
     <Compile Include="Entities\Viagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

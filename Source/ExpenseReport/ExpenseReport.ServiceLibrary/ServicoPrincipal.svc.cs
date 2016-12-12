@@ -77,6 +77,19 @@ namespace ExpenseReport.ServiceLibrary
             ProjetoBLL projetoBLL = new ProjetoBLL();
             return projetoBLL.Incluir(projeto);
         }
+
+        public bool Projeto_Alterar(Projeto projeto)
+        {
+            ProjetoBLL projetoBLL = new ProjetoBLL();
+            return projetoBLL.Alterar(projeto);
+        }
+
+        public Projeto Projeto_PorID(long ProjetoID)
+        {
+            ProjetoBLL projetoBLL = new ProjetoBLL();
+            return projetoBLL.ProjetoPorID(ProjetoID);
+
+        }
         #endregion
 
         #region Relatorio

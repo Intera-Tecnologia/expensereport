@@ -6,11 +6,11 @@ using System.Web;
 
 namespace ExpenseReport.UI.Web.ViewModel
 {
-    public class ProjetoCadastroViewModel
+    public class ProjetoCadastroViewModel : ServicoPrincipal.Projeto
     {
-        public Retorno Retorno { get; set; }
+        public Retorno Retorno { get; set; } = new Retorno();
 
-        public ServicoPrincipal.Projeto Projeto { get; set; }
+        
 
     }
 }

@@ -86,7 +86,12 @@ namespace ExpenseReport.ServiceLibrary
 
         [OperationContract]
         long Projeto_Incluir(Projeto projeto);
-        
+
+        [OperationContract]
+        bool Projeto_Alterar(Projeto projeto);
+
+        [OperationContract]
+        Projeto Projeto_PorID(long ProjetoID);
         #endregion
     }
 }

@@ -7,8 +7,17 @@ declare var $: JQueryStatic;
 
 class RelatorioCadastroClass {
     init(): void {
-        $(".formata-decimal-dolar")
-            .inputmask('US$ 99.999,99', { rightAlign: true, numericInput:true });
+       
+
+        (<any>$(".formata-decimal-dolar"))
+            .inputmask('numeric', {
+                radixPoint: ",",
+                groupSeparator: ".",
+                digits: 2,
+                autoGroup: true,
+                //  prefix: '$', //No Space, this will truncate the first character
+                rightAlign: true,
+                oncleared: () => { (<any>self).Value(''); } });
     }
 }
 

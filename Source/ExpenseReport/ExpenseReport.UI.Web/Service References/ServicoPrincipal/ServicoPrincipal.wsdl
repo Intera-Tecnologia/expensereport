@@ -133,6 +133,18 @@
   <wsdl:message name="IServicoPrincipal_Projeto_Incluir_OutputMessage">
     <wsdl:part name="parameters" element="tns:Projeto_IncluirResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_Alterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_Alterar" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_Alterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_PorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_PorID" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Projeto_PorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Projeto_PorIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicoPrincipal">
     <wsdl:operation name="Imagem_ListagemPorRelatorioDespesa">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Imagem_ListagemPorRelatorioDespesa" message="tns:IServicoPrincipal_Imagem_ListagemPorRelatorioDespesa_InputMessage" />
@@ -217,6 +229,14 @@
     <wsdl:operation name="Projeto_Incluir">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_Incluir" message="tns:IServicoPrincipal_Projeto_Incluir_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_IncluirResponse" message="tns:IServicoPrincipal_Projeto_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_Alterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_Alterar" message="tns:IServicoPrincipal_Projeto_Alterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_AlterarResponse" message="tns:IServicoPrincipal_Projeto_Alterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_PorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_PorID" message="tns:IServicoPrincipal_Projeto_PorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_PorIDResponse" message="tns:IServicoPrincipal_Projeto_PorID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicoPrincipal" type="tns:IServicoPrincipal">
@@ -403,6 +423,24 @@
     </wsdl:operation>
     <wsdl:operation name="Projeto_Incluir">
       <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Projeto_Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_Alterar">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Projeto_Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projeto_PorID">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Projeto_PorID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
