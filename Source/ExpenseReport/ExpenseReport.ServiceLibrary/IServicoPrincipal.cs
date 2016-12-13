@@ -50,6 +50,18 @@ namespace ExpenseReport.ServiceLibrary
 
         [OperationContract]
         List<Viagem> Viagem_ListagemPorProjeto(long ProjetoID);
+
+        [OperationContract]
+        bool Viagem_Excluir(long ViagemID);
+
+        [OperationContract]
+        long Viagem_Incluir(Viagem viagem);
+
+        [OperationContract]
+        bool Viagem_Alterar(Viagem viagem);
+
+        [OperationContract]
+        Viagem Viagem_PorID(long ViagemID);
         #endregion
 
         #region RelatorioDespesa

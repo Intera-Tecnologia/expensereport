@@ -168,7 +168,30 @@ namespace ExpenseReport.ServiceLibrary
             ViagemBLL viagemBLL = new ViagemBLL();
             return viagemBLL.Listagem(Descricao);
         }
-        
+
+        public bool Viagem_Excluir(long ViagemID)
+        {
+            ViagemBLL viagemBLL = new ViagemBLL();
+            return viagemBLL.Excluir(ViagemID);
+        }
+
+        public long Viagem_Incluir(Viagem viagem)
+        {
+            ViagemBLL viagemBLL = new ViagemBLL();
+            return viagemBLL.Incluir(viagem);
+        }
+
+        public bool Viagem_Alterar(Viagem viagem)
+        {
+            ViagemBLL viagemBLL = new ViagemBLL();
+            return viagemBLL.Alterar(viagem);
+        }
+
+        public Viagem Viagem_PorID(long ViagemID)
+        {
+            ViagemBLL viagemBLL = new ViagemBLL();
+            return viagemBLL.ViagemPorID(ViagemID);
+        }
         #endregion
 
     }

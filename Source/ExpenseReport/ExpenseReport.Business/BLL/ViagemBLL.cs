@@ -9,8 +9,15 @@ using ExpenseReport.Business.DTO;
 
 namespace ExpenseReport.Business.BLL
 {
+
     public class ViagemBLL:BaseBLL
     {
+        ProjetoBLL projetoBLL = new ProjetoBLL();
+        List<Projeto> listaProjeto = new List<Projeto>();
+        public ViagemBLL()
+        {
+            listaProjeto = projetoBLL.Listagem();
+        }
         public List<Viagem> Listagem()
         {
             this.InicializarConexao();
@@ -23,6 +30,12 @@ namespace ExpenseReport.Business.BLL
             List<Viagem> lista = Conexao
                 .Query<Viagem>(strConsulta)
                 .ToList();
+
+            lista.ForEach(o =>
+            {
+                o.Projeto = listaProjeto.FirstOrDefault(pr => pr.ProjetoID == o.ProjetoID);
+            });
+
             return lista;
         }
 
@@ -41,6 +54,12 @@ namespace ExpenseReport.Business.BLL
             List<Viagem> lista = Conexao
                 .Query<Viagem>(strConsulta, new { Descricao = Descricao })
                 .ToList();
+
+            lista.ForEach(o =>
+            {
+                o.Projeto = listaProjeto.FirstOrDefault(pr => pr.ProjetoID == o.ProjetoID);
+            });
+
             return lista;
         }
 
@@ -57,6 +76,12 @@ namespace ExpenseReport.Business.BLL
             List<Viagem> lista = Conexao
                 .Query<Viagem>(strConsulta, new { ProjetoID = ProjetoID })
                 .ToList();
+
+            lista.ForEach(o =>
+            {
+                o.Projeto = listaProjeto.FirstOrDefault(pr => pr.ProjetoID == o.ProjetoID);
+            });
+
             return lista;
         }
 
@@ -125,7 +150,7 @@ namespace ExpenseReport.Business.BLL
             return true;
         }
 
-        public Projeto ViagemPorID(long ViagemID)
+        public Viagem ViagemPorID(long ViagemID)
         {
             try
             {
