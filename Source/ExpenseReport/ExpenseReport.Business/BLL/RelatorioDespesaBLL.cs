@@ -20,6 +20,16 @@ namespace ExpenseReport.Business.BLL
                 .Query<RelatorioDespesa>(strConsulta, new { RelatorioID = relatorioID })
                 .ToList();
 
+            List<TipoDespesa> listaTipo = (new TipoDespesaBLL()).Listagem();
+            List<FonteDespesa> listaFonte = (new FonteDespesaBLL()).Listagem();
+
+            foreach (RelatorioDespesa item in lista)
+            {
+                item.FonteDespesa = listaFonte.FirstOrDefault(o => o.FonteDespesaID == item.FonteDespesaID);
+                item.TipoDespesa = listaTipo.FirstOrDefault(o => o.TipoDespesaID == item.TipoDespesaID);
+            }
+
+
             return lista;
         }
 
@@ -29,14 +39,12 @@ namespace ExpenseReport.Business.BLL
 
             string strConsulta =
                 @"INSERT INTO RelatorioDespesa (RelatorioID, FonteDespesaID, TipoDespesaID, Descricao, Data, Valor, Faturado)
-                  VALUES (@RelatorioID, @FonteDespesaID, @TipoDespesaID, @Descricao, @Data, @Valor, @Faturado)
-                  SELECT CAST(SCOPE_IDENTITY() AS bigint)";
+                  VALUES (@RelatorioID, @FonteDespesaID, @TipoDespesaID, @Descricao, @Data, @Valor, @Faturado)";
 
-            long RelatorioDespesaID = Conexao
-                .Query(strConsulta, relatorioDespesa)
-                .Single();
+            Conexao
+                .Query(strConsulta, relatorioDespesa);                
 
-            return RelatorioDespesaID;
+            return 1;
         }
 
         public bool Excluir(long RelatorioDespesaID)

@@ -398,7 +398,7 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal AdiantamentoField;
+        private decimal AdiantamentoRecebidoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal CambioDiaField;
@@ -450,14 +450,14 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Adiantamento {
+        public decimal AdiantamentoRecebido {
             get {
-                return this.AdiantamentoField;
+                return this.AdiantamentoRecebidoField;
             }
             set {
-                if ((this.AdiantamentoField.Equals(value) != true)) {
-                    this.AdiantamentoField = value;
-                    this.RaisePropertyChanged("Adiantamento");
+                if ((this.AdiantamentoRecebidoField.Equals(value) != true)) {
+                    this.AdiantamentoRecebidoField = value;
+                    this.RaisePropertyChanged("AdiantamentoRecebido");
                 }
             }
         }
@@ -1278,6 +1278,24 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagemResponse")]
         System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPoDescricaoViagemAsync(string descricaoViagem);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_Incluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_IncluirResponse")]
+        long Relatorio_Incluir(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_Incluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_IncluirResponse")]
+        System.Threading.Tasks.Task<long> Relatorio_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_AlterarResponse")]
+        bool Relatorio_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_AlterarResponse")]
+        System.Threading.Tasks.Task<bool> Relatorio_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_PorId", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_PorIdResponse")]
+        ExpenseReport.UI.Web.ServicoPrincipal.Relatorio Relatorio_PorId(long RelatorioID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_PorId", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_PorIdResponse")]
+        System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio> Relatorio_PorIdAsync(long RelatorioID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_Listagem", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_ListagemResponse")]
         ExpenseReport.UI.Web.ServicoPrincipal.Projeto[] Projeto_Listagem();
         
@@ -1516,6 +1534,30 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         
         public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPoDescricaoViagemAsync(string descricaoViagem) {
             return base.Channel.Relatorio_ListagemPoDescricaoViagemAsync(descricaoViagem);
+        }
+        
+        public long Relatorio_Incluir(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio) {
+            return base.Channel.Relatorio_Incluir(relatorio);
+        }
+        
+        public System.Threading.Tasks.Task<long> Relatorio_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio) {
+            return base.Channel.Relatorio_IncluirAsync(relatorio);
+        }
+        
+        public bool Relatorio_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio) {
+            return base.Channel.Relatorio_Alterar(relatorio);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Relatorio_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio) {
+            return base.Channel.Relatorio_AlterarAsync(relatorio);
+        }
+        
+        public ExpenseReport.UI.Web.ServicoPrincipal.Relatorio Relatorio_PorId(long RelatorioID) {
+            return base.Channel.Relatorio_PorId(RelatorioID);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio> Relatorio_PorIdAsync(long RelatorioID) {
+            return base.Channel.Relatorio_PorIdAsync(RelatorioID);
         }
         
         public ExpenseReport.UI.Web.ServicoPrincipal.Projeto[] Projeto_Listagem() {

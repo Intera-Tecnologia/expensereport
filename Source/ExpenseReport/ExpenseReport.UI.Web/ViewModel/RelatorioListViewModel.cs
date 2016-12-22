@@ -13,5 +13,7 @@ namespace ExpenseReport.UI.Web.ViewModel
         public string Acao { get; set; }
         public long RelatorioIDExcluir { get; set; }
         public List<Relatorio> Listagem { get; set; }
+
+        
     }
 }

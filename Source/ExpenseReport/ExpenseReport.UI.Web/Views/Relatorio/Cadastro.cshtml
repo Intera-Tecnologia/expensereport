@@ -3,8 +3,14 @@
     ViewBag.Title = "Cadastro de Relatório";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
-@using (Html.BeginForm("Cadastro", "Relatorio", FormMethod.Post, new { @id = "form_validation" }))
-{
+
+<form id="form" action="/Relatorio/Cadastro" method="post">
+
+
+    <input type="hidden" name="Acao" value=""/>
+
+
+
     <div class="row clearfix">
         <div class="col-md-12">
 
@@ -36,40 +42,53 @@
                     <div class="row clearfix">
                         <div class="col-md-2 col-sm-2">
                             <label>Id</label>
-                            <input type="text" class="form-control" value="@Model.Relatorio.RelatorioID" readonly name="Relatorio.RelatorioID" id="txtRelatorioID"/>
+                            <input type="text" class="form-control" value="@Model.Relatorio.RelatorioID" readonly name="Relatorio.RelatorioID" id="txtRelatorioID" />
                         </div>
 
                         <div class="col-md-4 col-sm-4">
                             <label>Viagem</label>
-                            @Html.DropDownListFor(m => m.Relatorio.ViagemID, new SelectList(Model.ListaViagem, "Value", "Text"), new { @class = "form-control" })
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            @Html.DropDownListFor(m => m.Relatorio.ViagemID, new SelectList(Model.ListaViagem, "Value", "Text"), new { @class = "form-control", @id = "cmbViagem" })
+                            <span class="label_erro" id="validaViagem">&nbsp;</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Diárias Recebidas</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.DiariasRecebidas" name="Relatorio.DiariasRecebidas" id="txtDiariasRecebidas" autocomplete="off" placeholder="Ex: 1500,00"/>
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.DiariasRecebidas" name="Relatorio.DiariasRecebidas" id="txtDiariasRecebidas" autocomplete="off" placeholder="Ex: 1500,00" />
+                            <span class="label_erro" id="validaDiarias">&nbsp;</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Adiantamento Recebido</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.Adiantamento" name="RelaRelatorio.Adiantamento" id="txtAdiantamento" autocomplete="off" placeholder="Ex: 1500,00"/>
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.AdiantamentoRecebido" name="Relatorio.AdiantamentoRecebido" id="txtAdiantamento" autocomplete="off" placeholder="Ex: 1500,00" />
+                            <span class="label_erro" id="validaAdiantamento">&nbsp;</span>
                         </div>
                         <div class="col-md-2 col-sm-2">
                             <label>Moeda</label>
-                            <input type="text" class="form-control" maxlength="3" value="@Model.Relatorio.Moeda" name="Relatorio.Moeda" id="txtMoeda" autocomplete="off" placeholder="Ex: USD"/>
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <input type="text" class="form-control" maxlength="3" value="@Model.Relatorio.Moeda" name="Relatorio.Moeda" id="txtMoeda" autocomplete="off" placeholder="Ex: USD" />
+                            <span class="label_erro" id="validaMoeda">&nbsp;</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Passagem Faturada</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="@Model.Relatorio.PassagemFaturada" name="Relatorio.PassagemFaturada" id="txtPassagemFaturada" autocomplete="off" placeholder="Ex: 1500,00"/>
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="@Model.Relatorio.PassagemFaturada" name="Relatorio.PassagemFaturada" id="txtPassagemFaturada" autocomplete="off" placeholder="Ex: 1500,00" />
+                            <span class="label_erro" id="validaPassagem">&nbsp;</span>
                         </div>
 
                         <div class="col-md-3 col-sm-3">
                             <label>Colaborador</label>
-                            @Html.DropDownListFor(m => m.Relatorio.ColaboradorID, new SelectList(Model.ListaColaborador, "Value", "Text"), new { @class = "form-control" })
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            @Html.DropDownListFor(m => m.Relatorio.ColaboradorID, new SelectList(Model.ListaColaborador, "Value", "Text"), new { @class = "form-control", @id = "cmbColaborador" })
+                            <span class="label_erro" id="validaColaborador">&nbsp;</span>
                         </div>
+                        
+
+                        <div class="col-md-2 col-sm-2">
+                            <label>Entrega</label>
+                            <input type="text" class="form-control formata-data" placeholder="dd/MM/yyyy" value='@Model.Relatorio.DataEntrega.ToString("dd/MM/yyyy")' name="Relatorio.DataEntrega" id="txtDataEntrega" />
+                        </div>
+
+                        <div class="col-md-2 col-sm-2">
+                            <label>Câmbio dia</label>
+                            <input type="text" class="form-control formata-decimal-dolar" placeholder="dd/MM/yyyy" value="@Model.Relatorio.CambioDia" name="Relatorio.CambioDia" id="txtCambioDia" autocomplete="off" />
+                            <span class="label_erro" id="validaCambio">&nbsp;</span>
+                        </div>
+
                         <div class="col-md-12 col-sm-12 text-right">
                             <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
                             <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
@@ -81,182 +100,145 @@
         </div>
     </div>
 
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h2>Despesas</h2>
-                    <button type="button" class="btn btn-primary header-dropdown m-r--5" data-toggle="modal" data-target="#modal_adicionar">Adicionar</button>
-                </div>
-                <div class="body">
-                    <div class="table-responsive">
-
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="60px">#</th>
-                                    <th width="80px">Data</th>
-                                    <th width="80px">Fonte</th>
-                                    <th width="80px">Tipo</th>
-                                    <th>Descrição</th>
-                                    <th width="40px" title="Faturado">Fat</th>
-                                    <th width="85px">Valor US$</th>
-                                    <th width="85px">Valor R$</th>
-                                    <th width="95"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>01/10/2016</td>
-                                    <td>Cartão</td>
-                                    <td>Diária</td>
-                                    <td>Taxi WD / Hotel</td>
-                                    <td>
-                                        <i class="material-icons">check_circle</i>
-                                    </td>
-                                    <td class="text-right">1,50</td>
-                                    <td class="text-right">4,70</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas">
-                                            <span class="glyphicon glyphicon-cd"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>01/10/2016</td>
-                                    <td>Cartão</td>
-                                    <td>Diária</td>
-                                    <td>Taxi Hotel / WD</td>
-                                    <td></td>
-                                    <td class="text-right">1,80</td>
-                                    <td class="text-right">5,00</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-
-                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-cd"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>01/10/2016</td>
-                                    <td>Cartão</td>
-                                    <td>Diária</td>
-                                    <td>Taxi Hotel / WD</td>
-                                    <td></td>
-                                    <td class="text-right">1,80</td>
-                                    <td class="text-right">4,70</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-
-                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-cd"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>01/10/2016</td>
-                                    <td>Cartão</td>
-                                    <td>Diária</td>
-                                    <td>Taxi Hotel / WD</td>
-                                    <td></td>
-                                    <td class="text-right">1,80</td>
-                                    <td class="text-right">4,70</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-                                        <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas" data-toggle="modal" data-target="#ModalExcluir">
-                                            <span class="glyphicon glyphicon-cd"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th colspan="5"></th>
-                                    <th class="text-right">TOTAL</th>
-                                    <th class="text-right">3,30</th>
-                                    <th class="text-right">4,70</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-                        </table>
+    @if (Model.Relatorio.RelatorioID != 0)
+    {
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Despesas</h2>
+                        <button type="button" class="btn btn-primary header-dropdown m-r--5" data-toggle="modal" data-target="#modal_adicionar">Adicionar</button>
                     </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            @if (Model.Relatorio.Despesas != null && Model.Relatorio.Despesas.Count() > 0)
+                            {
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="60px">#</th>
+                                            <th width="80px">Data</th>
+                                            <th width="80px">Fonte</th>
+                                            <th width="80px">Tipo</th>
+                                            <th>Descrição</th>
+                                            <th width="40px" title="Faturado">Fat</th>
+                                            <th width="85px">Valor US$</th>
+                                            <th width="85px">Valor R$</th>
+                                            <th width="95"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var despesa in Model.Relatorio.Despesas)
+                                        {
+                                            <tr>
+                                                <td>@despesa.RelatorioDespesaID</td>
+                                                <td>@despesa.Data</td>
+                                                <td>@despesa.FonteDespesa.Descricao</td>
+                                                <td>@despesa.TipoDespesa.Descricao</td>
+                                                <td>@despesa.Descricao</td>
+                                                <td>
+                                                    <i class="material-icons">check_circle</i>
+                                                </td>
+                                                <td class="text-right">@despesa.Valor</td>
+                                                @{
+                                                    decimal valor = despesa.Valor * (decimal)3.45;
+                                                }
+                                                <td class="text-right">@valor.ToString("#.00")</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-link" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </button>
+                                                    <a href="/Relatorio/GerenciarMideas" class="btn btn-sm btn-link" title="Gerenciar Mídeas">
+                                                        <span class="glyphicon glyphicon-cd"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        
+
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="5"></th>
+                                            <th class="text-right">TOTAL</th>
+                                            <th class="text-right">3,30</th>
+                                            <th class="text-right">4,70</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    }
+
+    <div class="modal fade" id="modal_adicionar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Cadastro de Despesa</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row clearfix">
+                        <div class="col-md-12 distancia_proximo">
+                            <label>Data</label>
+                            <input class="form-control" type="text" name="Despesa_Data" />
+                        </div>
+                        <div class="col-md-12 distancia_proximo">
+                            <label>Fonte</label>
+                            <select class="form-control" name="Despesa_Fonte">
+                                <option value="1">Credito</option>
+                                <option value="2">Dinheiro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 distancia_proximo" ">
+                            <label>Tipo</label>
+                            <select class="form-control" name="Despesa_Tipo">
+                                <option value="1">Diária</option>
+                                <option value="2">Transporte</option>
+                                <option value="3">Representação</option>
+                                <option value="4">Hospedagem</option>
+                                <option value="5">Cargas</option>
+                                <option value="6">Outras</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 distancia_proximo">
+                            <label>Descrição</label>
+                            <input class="form-control" type="text" name="Despesa_Descricao" maxlength="300" />
+                        </div>
+                        <div class="col-md-12 distancia_proximo">
+                            <label>Valor</label>
+                            <input class="form-control" type="text" name="Despesa_Valor" maxlength="300" />
+                        </div>
+                        <div class="col-md-12 distancia_proximo">
+                            <label>Faturado</label>
+                            <select class="form-control" name="Despesa_Faturado">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSalvarDespesa">Salvar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
-}
 
+</form>
 
-<div class="modal fade" id="modal_adicionar" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="defaultModalLabel">Cadastro de Despesa</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row clearfix">
-                    <div class="col-md-12 distancia_proximo">
-                        <label>Data</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="col-md-12 distancia_proximo">
-                        <label>Fonte</label>
-                        <select class="form-control">
-                            <option value="0">Credito</option>
-                            <option value="1">Dinheiro</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 distancia_proximo" ">
-                        <label>Tipo</label>
-                        <select class="form-control">
-                            <option value="0">Diária</option>
-                            <option value="1">Transporte</option>
-                            <option value="1">Representação</option>
-                            <option value="1">Hospedagem</option>
-                            <option value="1">Cargas</option>
-                            <option value="1">Outras</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 distancia_proximo">
-                        <label>Descrição</label>
-                        <input class="form-control" type="text" />
-                    </div>
-                    <div class="col-md-12 distancia_proximo">
-                        <label>Faturado</label>
-                        <select class="form-control">
-                            <option value="0">Não</option>
-                            <option value="1">Sim</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">SAVE CHANGES</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
 @section Scripts {
+    <script src="~/Scripts/views/Constantes.js"></script>
     <script src="~/Scripts/views/RelatorioCadastro.js"></script>
 }

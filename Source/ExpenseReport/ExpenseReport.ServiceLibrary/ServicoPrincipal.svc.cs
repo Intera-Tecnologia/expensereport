@@ -116,6 +116,24 @@ namespace ExpenseReport.ServiceLibrary
             RelatorioBLL relatorioBLL = new RelatorioBLL();
             return relatorioBLL.Listagem(descricaoViagem);
         }
+
+        public long Relatorio_Incluir(Relatorio relatorio)
+        {
+            RelatorioBLL relatorioBLL = new RelatorioBLL();
+            return relatorioBLL.Incluir(relatorio);
+        }
+
+        public bool Relatorio_Alterar(Relatorio relatorio)
+        {
+            RelatorioBLL relatorioBLL = new RelatorioBLL();
+            return relatorioBLL.Alterar(relatorio);
+        }
+
+        public Relatorio Relatorio_PorId(long RelatorioID)
+        {
+            RelatorioBLL relatorioBLL = new RelatorioBLL();
+            return relatorioBLL.RelatorioPorID(RelatorioID);
+        }
         #endregion
 
         #region RelatorioDespesa

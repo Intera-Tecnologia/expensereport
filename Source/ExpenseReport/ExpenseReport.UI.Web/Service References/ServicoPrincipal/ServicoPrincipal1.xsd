@@ -41,7 +41,7 @@
   <xs:element name="FonteDespesa" nillable="true" type="tns:FonteDespesa" />
   <xs:complexType name="Relatorio">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Adiantamento" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AdiantamentoRecebido" type="xs:decimal" />
       <xs:element minOccurs="0" name="CambioDia" type="xs:decimal" />
       <xs:element minOccurs="0" name="Colaborador" nillable="true" type="tns:Colaborador" />
       <xs:element minOccurs="0" name="ColaboradorID" type="xs:long" />

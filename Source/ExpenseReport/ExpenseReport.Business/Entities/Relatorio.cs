@@ -8,7 +8,7 @@ namespace ExpenseReport.Business.Entities
         public long RelatorioID { get; set; }
         public DateTime DataEntrega { get; set; }
         public decimal DiariasRecebidas { get; set; }
-        public decimal Adiantamento { get; set; }
+        public decimal AdiantamentoRecebido { get; set; }
         public decimal CambioDia { get; set; }
         public string Moeda { get; set; }
         public decimal PassagemFaturada { get; set; }

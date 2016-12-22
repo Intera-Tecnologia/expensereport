@@ -87,6 +87,15 @@ namespace ExpenseReport.ServiceLibrary
 
         [OperationContract]
         List<Relatorio> Relatorio_ListagemPoDescricaoViagem(string descricaoViagem);
+
+        [OperationContract]
+        long Relatorio_Incluir(Relatorio relatorio);
+
+        [OperationContract]
+        bool Relatorio_Alterar(Relatorio relatorio);
+
+        [OperationContract]
+        Relatorio Relatorio_PorId(long RelatorioID);
         #endregion
 
         #region Projeto

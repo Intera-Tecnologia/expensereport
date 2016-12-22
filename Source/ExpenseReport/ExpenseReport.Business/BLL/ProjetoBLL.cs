@@ -102,11 +102,10 @@ namespace ExpenseReport.Business.BLL
                       Status = @Status
                   WHERE ProjetoID = @ProjetoID";
 
-                var obj = Conexao
-                    .Query<RetornoIncluirDTO>(strConsulta, projeto)
-                    .FirstOrDefault();
+                Conexao
+                    .Query<RetornoIncluirDTO>(strConsulta, projeto);
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
 
                 return false;

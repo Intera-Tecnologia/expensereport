@@ -28,5 +28,16 @@ namespace ExpenseReport.UI.Web.ViewModel
 
         public List<SelectListItem> ListaViagem { get; set; } = new List<SelectListItem>();
         public List<SelectListItem> ListaColaborador { get; set; } = new List<SelectListItem>();
+        public string Acao { get; set; }
+
+
+        public DateTime Despesa_Data { get; set; }
+        public long Despesa_Fonte { get; set; }
+        public long Despesa_Tipo { get; set; }
+        public string Despesa_Descricao { get; set; }
+        public int Despesa_Faturado { get; set; }
+        public decimal Despesa_Valor { get; set; }
+
+
     }
 }

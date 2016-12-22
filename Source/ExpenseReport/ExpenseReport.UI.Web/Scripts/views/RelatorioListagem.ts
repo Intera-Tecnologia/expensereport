@@ -3,19 +3,16 @@
 
 declare var $: JQueryStatic;
 
-
-class ProjetoListagemTS {   
-
+class RelatorioListagemTS {
     btnLocalizar = $("#btnLocalizar");
     btnSim = $("#btnSim");
     form = $("#formProjeto");
     Acao = $("#Acao");
     btnExcluirList = $(".btnExcluir");
     btnEditarList = $(".btnEditar");
-    ProjetoIDExcluir = $("#ProjetoIDExcluir");
+    RelatorioIDExcluir = $("#RelatorioIDExcluir");
 
     init(): void {
-
         // Ao clicar, colocar o valor "A" no campo Hidden
         // de  Acao
         this.btnLocalizar.on("click", () => {
@@ -24,7 +21,7 @@ class ProjetoListagemTS {
 
         // Ao clicar, executar o submit do form para realizar
         // a remoção do registro
-        $("#btnSim").on("click", () => {
+        this.btnSim.on("click", () => {
             this.form.submit();
         });
 
@@ -33,18 +30,17 @@ class ProjetoListagemTS {
         this.btnExcluirList.on("click", (e: JQueryEventObject) => {
             var id = $(e.currentTarget).data("id");
             this.Acao.val("R"); // Remover
-            this.ProjetoIDExcluir.val(id);
+            this.RelatorioIDExcluir.val(id);
         });
 
-        this.btnEditarList.on("click", (e: JQueryEventObject) => {
+        this.btnEditarList.on("click", (e: JQueryEventObject) => {            
             var id: string = $(e.currentTarget).data("id");
-            window.location.href = "/Projeto/Cadastro?id=" + id;
+            window.location.href = "/Relatorio/Cadastro?id=" + id;
         });
-        
     }
 }
 
 window.onload = () => {
-    var obj = new ProjetoListagemTS();
+    var obj = new RelatorioListagemTS();
     obj.init();
 }

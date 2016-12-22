@@ -302,6 +302,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Relatorio_Incluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="relatorio" nillable="true" type="q20:Relatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_IncluirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Relatorio_IncluirResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_Alterar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="relatorio" nillable="true" type="q21:Relatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_AlterarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Relatorio_AlterarResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_PorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelatorioID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Relatorio_PorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Relatorio_PorIdResult" nillable="true" type="q22:Relatorio" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Projeto_Listagem">
     <xs:complexType>
       <xs:sequence />
@@ -310,7 +352,7 @@
   <xs:element name="Projeto_ListagemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemResult" nillable="true" type="q20:ArrayOfProjeto" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemResult" nillable="true" type="q23:ArrayOfProjeto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -324,7 +366,7 @@
   <xs:element name="Projeto_ListagemPorDescricaoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemPorDescricaoResult" nillable="true" type="q21:ArrayOfProjeto" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_ListagemPorDescricaoResult" nillable="true" type="q24:ArrayOfProjeto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -345,7 +387,7 @@
   <xs:element name="Projeto_Incluir">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="projeto" nillable="true" type="q22:Projeto" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="projeto" nillable="true" type="q25:Projeto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -359,7 +401,7 @@
   <xs:element name="Projeto_Alterar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="projeto" nillable="true" type="q23:Projeto" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="projeto" nillable="true" type="q26:Projeto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -380,7 +422,7 @@
   <xs:element name="Projeto_PorIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_PorIDResult" nillable="true" type="q24:Projeto" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ExpenseReport.Business.Entities" minOccurs="0" name="Projeto_PorIDResult" nillable="true" type="q27:Projeto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

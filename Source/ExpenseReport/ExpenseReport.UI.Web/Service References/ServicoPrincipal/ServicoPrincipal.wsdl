@@ -139,6 +139,24 @@
   <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_OutputMessage">
     <wsdl:part name="parameters" element="tns:Relatorio_ListagemPoDescricaoViagemResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_Incluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_Incluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_Incluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_IncluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_Alterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_Alterar" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_Alterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_PorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_PorId" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_PorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_PorIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicoPrincipal_Projeto_Listagem_InputMessage">
     <wsdl:part name="parameters" element="tns:Projeto_Listagem" />
   </wsdl:message>
@@ -263,6 +281,18 @@
     <wsdl:operation name="Relatorio_ListagemPoDescricaoViagem">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem" message="tns:IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagemResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_Incluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_Incluir" message="tns:IServicoPrincipal_Relatorio_Incluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_IncluirResponse" message="tns:IServicoPrincipal_Relatorio_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_Alterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_Alterar" message="tns:IServicoPrincipal_Relatorio_Alterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_AlterarResponse" message="tns:IServicoPrincipal_Relatorio_Alterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_PorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_PorId" message="tns:IServicoPrincipal_Relatorio_PorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_PorIdResponse" message="tns:IServicoPrincipal_Relatorio_PorId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Projeto_Listagem">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_Listagem" message="tns:IServicoPrincipal_Projeto_Listagem_InputMessage" />
@@ -482,6 +512,33 @@
     </wsdl:operation>
     <wsdl:operation name="Relatorio_ListagemPoDescricaoViagem">
       <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_Incluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_Alterar">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_PorId">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_PorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

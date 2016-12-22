@@ -138,9 +138,8 @@ namespace ExpenseReport.Business.BLL
                       ProjetoID = @ProjetoID
                   WHERE ViagemID = @ViagemID";
 
-                var obj = Conexao
-                    .Query<RetornoIncluirDTO>(strConsulta, viagem)
-                    .FirstOrDefault();
+                Conexao
+                    .Query<RetornoIncluirDTO>(strConsulta, viagem);
             }
             catch (System.Exception ex)
             {

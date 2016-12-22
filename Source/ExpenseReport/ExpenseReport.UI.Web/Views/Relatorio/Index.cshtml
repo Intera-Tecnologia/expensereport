@@ -6,6 +6,7 @@
 
 @using (Html.BeginForm("Index", "Relatorio", null, FormMethod.Post, new { @id = "form" }))
 {
+    <input type="hidden" name="Acao" id="Acao" value="A" />
     <div class="row clearfix">
         <div class="col-md-12">
 
@@ -86,10 +87,10 @@
                                                     <td>@relatorio.Viagem.DataInicio.ToString("dd/MM/yyyy")</td>
                                                     <td>@relatorio.Viagem.DataFim.ToString("dd/MM/yyyy")</td>
                                                     <td>
-                                                        <button class="btn btn-xs bg-black" title="Editar">
-                                                            <span class="glyphicon glyphicon-edit"></span>
+                                                        <button class="btn btn-xs bg-black btnEditar" title="Editar" type="button" data-id="@relatorio.RelatorioID">
+                                                            <span class="glyphicon glyphicon-edit" ></span>
                                                         </button>
-                                                        <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                                        <button class="btn btn-xs btn-danger btnExcluir" title="Excluir" data-toggle="modal" data-target="#ModalExcluir" data-id="@relatorio.RelatorioID" type="button">
                                                             <span class="glyphicon glyphicon-trash"></span>
                                                         </button>
                                                     </td>
@@ -107,3 +108,7 @@
         </div>
     </div>
 }
+
+@section Scripts {
+<script src="~/Scripts/views/RelatorioListagem.js"></script>
+    }

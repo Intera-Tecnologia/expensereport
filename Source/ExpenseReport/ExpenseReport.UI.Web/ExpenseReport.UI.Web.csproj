@@ -3649,6 +3649,7 @@
     <TypeScriptCompile Include="Scripts\views\ProjetoCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ProjetoListagem.ts" />
     <TypeScriptCompile Include="Scripts\views\RelatorioCadastro.ts" />
+    <TypeScriptCompile Include="Scripts\views\RelatorioListagem.ts" />
     <TypeScriptCompile Include="Scripts\views\ViagemCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ViagemListagem.ts" />
   </ItemGroup>
