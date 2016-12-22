@@ -84,6 +84,9 @@ namespace ExpenseReport.ServiceLibrary
 
         [OperationContract]
         List<Relatorio> Relatorio_ListagemPorDataColaborador(DateTime data, long colaboradorID);
+
+        [OperationContract]
+        List<Relatorio> Relatorio_ListagemPoDescricaoViagem(string descricaoViagem);
         #endregion
 
         #region Projeto

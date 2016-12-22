@@ -3485,6 +3485,10 @@
     <Compile Include="Utils\RetornoListagem.cs" />
     <Compile Include="ViewModel\ProjetoCadastroViewModel.cs" />
     <Compile Include="ViewModel\ProjetoListViewModel.cs" />
+    <Compile Include="ViewModel\RelatorioCadastroViewModel.cs" />
+    <Compile Include="ViewModel\RelatorioListViewModel.cs" />
+    <Compile Include="ViewModel\ViagemCadastroViewModel.cs" />
+    <Compile Include="ViewModel\ViagemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -3646,6 +3650,7 @@
     <TypeScriptCompile Include="Scripts\views\ProjetoListagem.ts" />
     <TypeScriptCompile Include="Scripts\views\RelatorioCadastro.ts" />
     <TypeScriptCompile Include="Scripts\views\ViagemCadastro.ts" />
+    <TypeScriptCompile Include="Scripts\views\ViagemListagem.ts" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

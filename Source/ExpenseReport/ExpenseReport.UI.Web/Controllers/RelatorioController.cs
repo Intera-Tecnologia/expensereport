@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExpenseReport.UI.Web.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +12,28 @@ namespace ExpenseReport.UI.Web.Controllers
         // GET: Relatorio
         public ActionResult Index()
         {
-            return View();
+            RelatorioListViewModel viewModel = new RelatorioListViewModel();
+
+            return View(viewModel);
         }
 
-        public ActionResult Cadastro()
+        [HttpPost]
+        public ActionResult Index(RelatorioListViewModel viewModel)
         {
-            return View();
+            ServicoPrincipal.ServicoPrincipalClient servico = new ServicoPrincipal.ServicoPrincipalClient();
+
+            viewModel.Listagem = servico
+                .Relatorio_ListagemPoDescricaoViagem(viewModel.Filtro)
+                .ToList() ;
+
+            return View(viewModel);
+        }
+
+        public ActionResult Cadastro(long? id)
+        {
+            RelatorioCadastroViewModel viewModel = new RelatorioCadastroViewModel();
+
+            return View(viewModel);
         }
 
         public ActionResult GerenciarMideas()

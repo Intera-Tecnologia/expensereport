@@ -1,4 +1,4 @@
-﻿
+﻿@model ExpenseReport.UI.Web.ViewModel.ViagemCadastroViewModel
 @{
     ViewBag.Title = "Cadastro de Viagem";
     Layout = "~/Views/Shared/_Principal.cshtml";
@@ -10,17 +10,30 @@
 
 
 
-@using (Html.BeginForm("Cadastro", "Colaborador", FormMethod.Post, new { @id = "form_validation" }))
+@using (Html.BeginForm("Cadastro", "Viagem", FormMethod.Post, new { @id = "form" }))
 {
     <div class="row clearfix">
         <div class="col-md-12">
 
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Erro!</strong> Mensagem de Erro.
-            </div>
+            @if (Model.Retorno != null && Model.Retorno.RetornouErro)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Erro!</strong> @Model.Retorno.MensagemErro
+                </div>
+            }
+
+            @if (Model.Retorno != null && Model.Retorno.RetornouSucesso)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
+                </div>
+            }
 
             <div class="card">
                 <div class="header">
@@ -30,55 +43,72 @@
                     <div class="row clearfix">
                         <div class="col-md-2 col-sm-2">
                             <label>Id</label>
-                            <input type="text" class="form-control" value="1" readonly />
+                            <input type="text" class="form-control" value="@Model.Viagem.ViagemID" name="Viagem.ViagemID" id="txtViagemID" readonly />
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <label>Descricao</label>
-                            <input type="text" class="form-control" maxlength="100" value="" name="Descricao" />
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
+                            <label>Descrição</label>
+                            <input type="text" class="form-control" maxlength="100" value="@Model.Viagem.Descricao" name="Viagem.Descricao" id="txtDescricao" autocomplete="off"/>
+                            <span class="label_erro" id="validaDescricao">&nbsp;</span>
                         </div>
                         <div class="col-md-2 col-sm-2">
-                            <label>Ida</label>
-                            <input type="text" class="form-control formata-data" id="txtIda" placeholder="dd/mm/yyyy">
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
-                        </div>
-                        
-                        <div class="col-md-2 col-sm-2">
-                            <label>Volta</label>
-                            <input type="text" class="form-control formata-data"  name="Volta" placeholder="dd/mm/yyyy" />
-                            <span class="label_erro" id="validaVolta">Campo obrigatório</span>
-                        </div>
-                        
-                        <div class="col-md-8 col-sm-8">
-                            <label>Projeto</label>
-                            <select class="form-control show-tick">
-                                <option value="0">BCOMS</option>
-                                <option value="1">TPE</option>
-                                <option value="2">SMR</option>
-                                <option value="2">P4</option>
-                            </select>
-                            <span class="label_erro" id="validaVolta">Campo obrigatório</span>
+                            <label>Data Inicial</label>
+                            @{
+                                string dataInicio = "";
+                                if (Model.Viagem.DataInicio.Year > 2000)
+                                {
+                                    dataInicio = Model.Viagem.DataInicio.ToString("dd/MM/yyyy");
+                                }
+                                else
+                                {
+                                    dataInicio = "";
+                                }
+
+                                string dataFim = "";
+                                if (Model.Viagem.DataFim.Year > 2000)
+                                {
+                                    dataFim = Model.Viagem.DataFim.ToString("dd/MM/yyyy");
+                                }
+                                else
+                                {
+                                    dataFim = "";
+                                }
+                            }
+                                    <input type="text" class="form-control formata-data" id="txtDataInicio" placeholder="dd/mm/yyyy" value='@dataInicio' name="Viagem.DataInicio" autocomplete="off">
+                                    <span class="label_erro" id="validaDataInicio">&nbsp;</span>
+                                </div>
+
+                                <div class="col-md-2 col-sm-2">
+                                    <label>Data Final</label>
+                                    <input type="text" class="form-control formata-data" id="txtDataFim" placeholder="dd/mm/yyyy" value='@dataFim' name="Viagem.DataFim" autocomplete="off"/>
+                                    <span class="label_erro" id="validaDataFim">&nbsp;</span>
+                                </div>
+
+                                <div class="col-md-8 col-sm-8">
+                                    <label>Projeto</label>
+                                    @Html.DropDownListFor(m => m.Viagem.ProjetoID, new SelectList(Model.ListaProjeto, "Value", "Text"), new { @class = "form-control" })
+                                    <span class="label_erro" id="validaVolta">&nbsp;</span>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12">
+                                    <label>Justificativa</label>
+                                    <textarea class="form-control" name="Viagem.Justificativa" id="txtJustificativa">@Model.Viagem.Justificativa</textarea>
+                                    <span class="label_erro" id="validaJustificativa">&nbsp;</span>
+                                </div>
+                                <div class="col-md-12 col-sm-12 text-right">
+                                    <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
+                                    <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12">
-                            <label>Justificativa</label>
-                            <textarea class="form-control"></textarea>                            
-                            <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
-                        </div>
-                        <div class="col-md-12 col-sm-12 text-right">
-                            <button type="button" class="btn btn-default" id="btnSalvar">Salvar</button>
-                            <button type="button" class="btn btn-primary" id="btnCancelar">Cancelar</button>
-                        </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
 
-}
+                            }
 
-@section Scripts {
-    
-    <script src="~/Scripts/views/ViagemCadastro.js"></script>
-}
+                            @section Scripts {
+
+                                <script src="~/Scripts/views/Constantes.js"></script>
+                                <script src="~/Scripts/views/ViagemCadastro.js"></script>
+                            }

@@ -110,6 +110,12 @@ namespace ExpenseReport.ServiceLibrary
             RelatorioBLL relatorioBLL = new RelatorioBLL();
             return relatorioBLL.Listagem(data, colaboradorID);
         }
+
+        public List<Relatorio> Relatorio_ListagemPoDescricaoViagem(string descricaoViagem)
+        {
+            RelatorioBLL relatorioBLL = new RelatorioBLL();
+            return relatorioBLL.Listagem(descricaoViagem);
+        }
         #endregion
 
         #region RelatorioDespesa

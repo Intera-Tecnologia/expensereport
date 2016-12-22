@@ -10,17 +10,26 @@ namespace ExpenseReport.Business.BLL
     {
         public List<Projeto> Listagem()
         {
-            this.InicializarConexao();
+            try
+            {
+                this.InicializarConexao();
 
-            string strConsulta =
-                @"SELECT * FROM Projeto                
+                string strConsulta =
+                    @"SELECT * FROM Projeto                
                 ORDER BY Descricao";
 
-            List<Projeto> lista = Conexao
-                .Query<Projeto>(strConsulta)
-                .ToList();
+                List<Projeto> lista = Conexao
+                    .Query<Projeto>(strConsulta)
+                    .ToList();
 
-            return lista;
+                return lista;
+            }
+            catch (System.Exception)
+            {
+                return new List<Projeto>();
+            }
+
+            
         }
 
         public List<Projeto> Listagem(string Descricao)

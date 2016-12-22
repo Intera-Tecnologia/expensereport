@@ -14,8 +14,8 @@ namespace ExpenseReport.Business.BLL
 
             string strConsulta =
                 @"SELECT r.* ,
-	                v.DataInicio as DataViagemInicio,  
-	                v.DataFim as DataViagemFim
+                    v.DataInicio as DataViagemInicio,  
+                    v.DataFim as DataViagemFim
                   FROM Relatorio r
                   INNER JOIN Viagem v ON r.ViagemID = v.ViagemID
                   WHERE (v.DataInicio >= @Data AND v.DataFim <= @Data )
@@ -24,6 +24,8 @@ namespace ExpenseReport.Business.BLL
             List<Relatorio> lista = Conexao
                 .Query<Relatorio>(strConsulta,new { Data = data })
                 .ToList();
+
+            CompletaDetalhes(lista);
 
             return lista;
         }
@@ -34,8 +36,8 @@ namespace ExpenseReport.Business.BLL
 
             string strConsulta =
                 @"SELECT r.* ,
-	                v.DataInicio as DataViagemInicio,  
-	                v.DataFim as DataViagemFim
+                    v.DataInicio as DataViagemInicio,  
+                    v.DataFim as DataViagemFim
                   FROM Relatorio r
                   INNER JOIN Viagem v ON r.ViagemID = v.ViagemID
                   WHERE ( r.ColaboradorID = @ColaboradorID )
@@ -44,6 +46,8 @@ namespace ExpenseReport.Business.BLL
             List<Relatorio> lista = Conexao
                 .Query<Relatorio>(strConsulta, new { ColaboradorID = colaboradorID })
                 .ToList();
+
+            CompletaDetalhes(lista);
 
             return lista;
         }
@@ -54,8 +58,8 @@ namespace ExpenseReport.Business.BLL
 
             string strConsulta =
                 @"SELECT r.* ,
-	                v.DataInicio as DataViagemInicio,  
-	                v.DataFim as DataViagemFim
+                    v.DataInicio as DataViagemInicio,  
+                    v.DataFim as DataViagemFim
                   FROM Relatorio r
                   INNER JOIN Viagem v ON r.ViagemID = v.ViagemID
                   WHERE v.DataInicio >= @Data 
@@ -67,10 +71,47 @@ namespace ExpenseReport.Business.BLL
                 .Query<Relatorio>(strConsulta, new { Data = data, ColaboradorID = colaboradorID })
                 .ToList();
 
+            CompletaDetalhes(lista);
+
+            return lista;
+
+
+        }
+
+        public List<Relatorio> Listagem(string descricaoViagem)
+        {
+            this.InicializarConexao();
+
+            string strConsulta =
+                @"SELECT r.* ,
+                    v.DataInicio as DataViagemInicio,  
+                    v.DataFim as DataViagemFim
+                  FROM Relatorio r
+                  INNER JOIN Viagem v ON r.ViagemID = v.ViagemID
+                  WHERE (v.Descricao like @Descricao)
+                  ORDER BY v.DataInicio";
+
+            List<Relatorio> lista = Conexao
+                .Query<Relatorio>(strConsulta, new { Descricao = "%"+descricaoViagem+"%" })
+                .ToList();
+
+            CompletaDetalhes(lista);
+
             return lista;
         }
 
-        
+        private void CompletaDetalhes(List<Relatorio> lista)
+        {
+            ViagemBLL viagemBLL = new ViagemBLL();
+            ProjetoBLL projetoBLL = new ProjetoBLL();
+
+            foreach (Relatorio relatorio in lista)
+            {
+                Viagem viagem = viagemBLL.ViagemPorID(relatorio.ViagemID);
+                viagem.Projeto = projetoBLL.ProjetoPorID(viagem.ProjetoID);
+                relatorio.Viagem = viagem;
+            }
+        }
 
     }
 }

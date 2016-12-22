@@ -1208,6 +1208,30 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjeto", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjetoResponse")]
         System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Viagem[]> Viagem_ListagemPorProjetoAsync(long ProjetoID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Excluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_ExcluirResponse")]
+        bool Viagem_Excluir(long ViagemID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Excluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_ExcluirResponse")]
+        System.Threading.Tasks.Task<bool> Viagem_ExcluirAsync(long ViagemID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Incluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_IncluirResponse")]
+        long Viagem_Incluir(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Incluir", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_IncluirResponse")]
+        System.Threading.Tasks.Task<long> Viagem_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_AlterarResponse")]
+        bool Viagem_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_Alterar", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_AlterarResponse")]
+        System.Threading.Tasks.Task<bool> Viagem_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_PorID", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_PorIDResponse")]
+        ExpenseReport.UI.Web.ServicoPrincipal.Viagem Viagem_PorID(long ViagemID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Viagem_PorID", ReplyAction="http://tempuri.org/IServicoPrincipal/Viagem_PorIDResponse")]
+        System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Viagem> Viagem_PorIDAsync(long ViagemID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorio", ReplyAction="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorioRespons" +
             "e")]
         ExpenseReport.UI.Web.ServicoPrincipal.RelatorioDespesa[] RelatorioDespesa_ListagemPorRelatorio(long relatorioID);
@@ -1247,6 +1271,12 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaborador", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaboradorResponse" +
             "")]
         System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPorDataColaboradorAsync(System.DateTime data, long colaboradorID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagemResponse")]
+        ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[] Relatorio_ListagemPoDescricaoViagem(string descricaoViagem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem", ReplyAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagemResponse")]
+        System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPoDescricaoViagemAsync(string descricaoViagem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicoPrincipal/Projeto_Listagem", ReplyAction="http://tempuri.org/IServicoPrincipal/Projeto_ListagemResponse")]
         ExpenseReport.UI.Web.ServicoPrincipal.Projeto[] Projeto_Listagem();
@@ -1400,6 +1430,38 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
             return base.Channel.Viagem_ListagemPorProjetoAsync(ProjetoID);
         }
         
+        public bool Viagem_Excluir(long ViagemID) {
+            return base.Channel.Viagem_Excluir(ViagemID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Viagem_ExcluirAsync(long ViagemID) {
+            return base.Channel.Viagem_ExcluirAsync(ViagemID);
+        }
+        
+        public long Viagem_Incluir(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem) {
+            return base.Channel.Viagem_Incluir(viagem);
+        }
+        
+        public System.Threading.Tasks.Task<long> Viagem_IncluirAsync(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem) {
+            return base.Channel.Viagem_IncluirAsync(viagem);
+        }
+        
+        public bool Viagem_Alterar(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem) {
+            return base.Channel.Viagem_Alterar(viagem);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Viagem_AlterarAsync(ExpenseReport.UI.Web.ServicoPrincipal.Viagem viagem) {
+            return base.Channel.Viagem_AlterarAsync(viagem);
+        }
+        
+        public ExpenseReport.UI.Web.ServicoPrincipal.Viagem Viagem_PorID(long ViagemID) {
+            return base.Channel.Viagem_PorID(ViagemID);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Viagem> Viagem_PorIDAsync(long ViagemID) {
+            return base.Channel.Viagem_PorIDAsync(ViagemID);
+        }
+        
         public ExpenseReport.UI.Web.ServicoPrincipal.RelatorioDespesa[] RelatorioDespesa_ListagemPorRelatorio(long relatorioID) {
             return base.Channel.RelatorioDespesa_ListagemPorRelatorio(relatorioID);
         }
@@ -1446,6 +1508,14 @@ namespace ExpenseReport.UI.Web.ServicoPrincipal {
         
         public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPorDataColaboradorAsync(System.DateTime data, long colaboradorID) {
             return base.Channel.Relatorio_ListagemPorDataColaboradorAsync(data, colaboradorID);
+        }
+        
+        public ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[] Relatorio_ListagemPoDescricaoViagem(string descricaoViagem) {
+            return base.Channel.Relatorio_ListagemPoDescricaoViagem(descricaoViagem);
+        }
+        
+        public System.Threading.Tasks.Task<ExpenseReport.UI.Web.ServicoPrincipal.Relatorio[]> Relatorio_ListagemPoDescricaoViagemAsync(string descricaoViagem) {
+            return base.Channel.Relatorio_ListagemPoDescricaoViagemAsync(descricaoViagem);
         }
         
         public ExpenseReport.UI.Web.ServicoPrincipal.Projeto[] Projeto_Listagem() {

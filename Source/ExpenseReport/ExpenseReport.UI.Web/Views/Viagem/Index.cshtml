@@ -5,24 +5,30 @@
 }
 @using (Html.BeginForm("Index", "Viagem", null, FormMethod.Post, new { @id = "formViagem" }))
 {
+    <input type="hidden" name="Acao" id="Acao" value="" />
+    <input type="hidden" name="ViagemIDExcluir" id="ViagemIDExcluir" value="" />
+
     <div class="row clearfix">
         <div class="col-md-12">
-            @if (Model.)
+            @if (Model.Retorno.RetornouErro)
+            {
                 <div class="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <strong>Erro!</strong> Mensagem de Erro.
+                    <strong>Erro!</strong> @Model.Retorno.MensagemErro
                 </div>
+            }
 
+            @if (Model.Retorno.RetornouSucesso)
+            {
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <strong>Sucesso!</strong> Mensagem de Sucesso.
+                    <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
                 </div>
-
-
+            }
                 <div class="card">
                     <div class="header">
                         <h2>@ViewBag.Title</h2>
@@ -33,7 +39,7 @@
                                 <input class="form-control" type="text" placeholder="Descrição" />
                             </div>
                             <div class="col-md-3">
-                                <button class="btn btn-primary" type="button" title="Localizar">
+                                <button class="btn btn-primary" type="submit" title="Localizar" id="btnLocalizar">
                                     <span class="glyphicon glyphicon-search"></span> Localizar
                                 </button>
                                 <a href="/Viagem/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
@@ -78,11 +84,11 @@
                                                         <td>@viagem.DataInicio</td>
                                                         <td>@viagem.DataFim</td>
                                                         <td>@viagem.Projeto.Descricao</td>
-                                                        <td>
-                                                            <button class="btn btn-sm btn-link btnEditar" title="Editar" data-id="@viagem.ViagemID">
+                                                        <td class="text-right">
+                                                            <button type="button" class="btn btn-xs bg-black btnEditar" title="Editar" data-id="@viagem.ViagemID">
                                                                 <span class="glyphicon glyphicon-edit"></span>
                                                             </button>
-                                                            <button class="btn btn-sm btn-link btnExcluir" title="Remover" data-toggle="modal" data-target="#ModalExcluir" data-id="@viagem.ViagemID">
+                                                            <button type="button" class="btn btn-xs btn-danger btnExcluir" title="Remover" data-toggle="modal" data-target="#ModalExcluir" data-id="@viagem.ViagemID">
                                                                 <span class="glyphicon glyphicon-trash"></span>
                                                             </button>
                                                         </td>
@@ -98,4 +104,9 @@
                     </div>
                 </div>
             </div>
-                                    }
+}
+
+@section Scripts {
+    
+<script src="~/Scripts/views/ViagemListagem.js"></script>
+}

@@ -1,103 +1,109 @@
-﻿
+﻿@model ExpenseReport.UI.Web.ViewModel.RelatorioListViewModel
 @{
     ViewBag.Title = "Relatorios de Viagem Listagem";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
 
-<div class="row clearfix">
-    <div class="col-md-12">
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Erro!</strong> Mensagem de Erro.
-        </div>
+@using (Html.BeginForm("Index", "Relatorio", null, FormMethod.Post, new { @id = "form" }))
+{
+    <div class="row clearfix">
+        <div class="col-md-12">
 
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Sucesso!</strong> Mensagem de Sucesso.
-        </div>
+            @if (Model.Retorno.RetornouErro)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Erro!</strong> @Model.Retorno.MensagemErro
+                </div>
+            }
+
+            @if (Model.Retorno.RetornouSucesso)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
+                </div>
+            }
 
 
-        <div class="card">
-            <div class="header">
-                <h2>@ViewBag.Title</h2>
-            </div>
-            <div class="body bg-info">
-                <div class="row clearfix barra_busca">
-                    <div class="col-md-6">
-                        <input class="form-control" type="text" placeholder="Descrição" />
-                    </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-primary" type="button" title="Localizar">
-                            <span class="glyphicon glyphicon-search"></span> Localizar
-                        </button>
-                        <a href="/Relatorio/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
-                            <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
-                        </a>
+            <div class="card">
+                <div class="header">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+                <div class="body bg-info">
+                    <div class="row clearfix barra_busca">
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" placeholder="Descrição" />
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" type="submit" title="Localizar">
+                                <span class="glyphicon glyphicon-search"></span> Localizar
+                            </button>
+                            <a href="/Relatorio/Cadastro" class="btn btn-primary" type="button" title="Adicionar">
+                                <span class="glyphicon glyphicon-plus-sign"></span> Adicionar
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="body">
-                <hr />
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th width="70px">#</th>
-                                        <th>Viagem</th>
-                                        <th>Projeto</th>
-                                        <th>Ida</th>
-                                        <th>Volta</th>                                        
-                                        <th width="70px"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Malásia Out 2016</td>
-                                        <td>BCONS</td>
-                                        <td>30/10/2016</td>
-                                        <td>30/11/2016</td>                                        
-                                        <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
-                                                <span class="glyphicon glyphicon-edit"></span>
-                                            </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                                <span class="glyphicon glyphicon-trash"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
+                <div class="body">
+                    <hr />
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>USA Out 2016</td>
-                                        <td>TPE</td>
-                                        <td>30/10/2016</td>
-                                        <td>30/11/2016</td>                                        
-                                        <td>
-                                            <button class="btn btn-xs bg-black" title="Editar">
-                                                <span class="glyphicon glyphicon-edit"></span>
-                                            </button>
-                                            <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
-                                                <span class="glyphicon glyphicon-trash"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                @if (Model.Listagem == null || Model.Listagem.Count() == 0)
+                                {
+                                    <div class="text-center">
+                                        <label>Nenhum registro encontrado para a consulta.</label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="70px">#</th>
+                                                <th>Viagem</th>
+                                                <th>Projeto</th>
+                                                <th>Ida</th>
+                                                <th>Volta</th>
+                                                <th width="70px"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (ExpenseReport.UI.Web.ServicoPrincipal.Relatorio relatorio in Model.Listagem)
+                                            {
+                                                <tr>
+                                                    <td>@relatorio.RelatorioID</td>
+                                                    <td>@relatorio.Viagem.Descricao</td>
+                                                    <td>@relatorio.Viagem.Projeto.Descricao</td>
+                                                    <td>@relatorio.Viagem.DataInicio.ToString("dd/MM/yyyy")</td>
+                                                    <td>@relatorio.Viagem.DataFim.ToString("dd/MM/yyyy")</td>
+                                                    <td>
+                                                        <button class="btn btn-xs bg-black" title="Editar">
+                                                            <span class="glyphicon glyphicon-edit"></span>
+                                                        </button>
+                                                        <button class="btn btn-xs btn-danger" title="Excluir" data-toggle="modal" data-target="#ModalExcluir">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
+}

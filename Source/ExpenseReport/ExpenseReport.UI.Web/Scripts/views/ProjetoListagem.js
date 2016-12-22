@@ -1,34 +1,35 @@
 /// <reference path="../typings/bootstrap/bootstrap.d.ts" />
 /// <reference path="../typings/jquery/jquery.d.ts" />
-var btnLocalizar = $("#btnLocalizar");
-var btnSim = $("#btnSim");
-var form = $("#formProjeto");
-var Acao = $("#Acao");
-var btnExcluirList = $(".btnExcluir");
-var btnEditarList = $(".btnEditar");
-var ProjetoIDExcluir = $("#ProjetoIDExcluir");
 var ProjetoListagemTS = (function () {
     function ProjetoListagemTS() {
+        this.btnLocalizar = $("#btnLocalizar");
+        this.btnSim = $("#btnSim");
+        this.form = $("#formProjeto");
+        this.Acao = $("#Acao");
+        this.btnExcluirList = $(".btnExcluir");
+        this.btnEditarList = $(".btnEditar");
+        this.ProjetoIDExcluir = $("#ProjetoIDExcluir");
     }
     ProjetoListagemTS.prototype.init = function () {
+        var _this = this;
         // Ao clicar, colocar o valor "A" no campo Hidden
         // de  Acao
-        btnLocalizar.on("click", function () {
-            Acao.val("L");
+        this.btnLocalizar.on("click", function () {
+            _this.Acao.val("L");
         });
         // Ao clicar, executar o submit do form para realizar
         // a remoção do registro
         $("#btnSim").on("click", function () {
-            form.submit();
+            _this.form.submit();
         });
         // Ao clicar no excluir, localizar o ID do Projeto
         // E colocar no HIDDEN correspondente
-        btnExcluirList.on("click", function (e) {
+        this.btnExcluirList.on("click", function (e) {
             var id = $(e.currentTarget).data("id");
-            Acao.val("R"); // Remover
-            ProjetoIDExcluir.val(id);
+            _this.Acao.val("R"); // Remover
+            _this.ProjetoIDExcluir.val(id);
         });
-        btnEditarList.on("click", function (e) {
+        this.btnEditarList.on("click", function (e) {
             var id = $(e.currentTarget).data("id");
             window.location.href = "/Projeto/Cadastro?id=" + id;
         });

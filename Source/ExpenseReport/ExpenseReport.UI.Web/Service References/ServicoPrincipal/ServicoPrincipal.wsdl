@@ -73,6 +73,30 @@
   <wsdl:message name="IServicoPrincipal_Viagem_ListagemPorProjeto_OutputMessage">
     <wsdl:part name="parameters" element="tns:Viagem_ListagemPorProjetoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Excluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_Excluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Excluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_ExcluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Incluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_Incluir" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Incluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_IncluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Alterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_Alterar" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_Alterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_PorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_PorID" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Viagem_PorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Viagem_PorIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_InputMessage">
     <wsdl:part name="parameters" element="tns:RelatorioDespesa_ListagemPorRelatorio" />
   </wsdl:message>
@@ -108,6 +132,12 @@
   </wsdl:message>
   <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPorDataColaborador_OutputMessage">
     <wsdl:part name="parameters" element="tns:Relatorio_ListagemPorDataColaboradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_InputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPoDescricaoViagem" />
+  </wsdl:message>
+  <wsdl:message name="IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Relatorio_ListagemPoDescricaoViagemResponse" />
   </wsdl:message>
   <wsdl:message name="IServicoPrincipal_Projeto_Listagem_InputMessage">
     <wsdl:part name="parameters" element="tns:Projeto_Listagem" />
@@ -190,6 +220,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjeto" message="tns:IServicoPrincipal_Viagem_ListagemPorProjeto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ListagemPorProjetoResponse" message="tns:IServicoPrincipal_Viagem_ListagemPorProjeto_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Viagem_Excluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_Excluir" message="tns:IServicoPrincipal_Viagem_Excluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_ExcluirResponse" message="tns:IServicoPrincipal_Viagem_Excluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Incluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_Incluir" message="tns:IServicoPrincipal_Viagem_Incluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_IncluirResponse" message="tns:IServicoPrincipal_Viagem_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Alterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_Alterar" message="tns:IServicoPrincipal_Viagem_Alterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_AlterarResponse" message="tns:IServicoPrincipal_Viagem_Alterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_PorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_PorID" message="tns:IServicoPrincipal_Viagem_PorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Viagem_PorIDResponse" message="tns:IServicoPrincipal_Viagem_PorID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RelatorioDespesa_ListagemPorRelatorio">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorio" message="tns:IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorioResponse" message="tns:IServicoPrincipal_RelatorioDespesa_ListagemPorRelatorio_OutputMessage" />
@@ -213,6 +259,10 @@
     <wsdl:operation name="Relatorio_ListagemPorDataColaborador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaborador" message="tns:IServicoPrincipal_Relatorio_ListagemPorDataColaborador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaboradorResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPorDataColaborador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPoDescricaoViagem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem" message="tns:IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagemResponse" message="tns:IServicoPrincipal_Relatorio_ListagemPoDescricaoViagem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Projeto_Listagem">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicoPrincipal/Projeto_Listagem" message="tns:IServicoPrincipal_Projeto_Listagem_InputMessage" />
@@ -340,6 +390,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Viagem_Excluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_Excluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Incluir">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_Alterar">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Viagem_PorID">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Viagem_PorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RelatorioDespesa_ListagemPorRelatorio">
       <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/RelatorioDespesa_ListagemPorRelatorio" style="document" />
       <wsdl:input>
@@ -387,6 +473,15 @@
     </wsdl:operation>
     <wsdl:operation name="Relatorio_ListagemPorDataColaborador">
       <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPorDataColaborador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relatorio_ListagemPoDescricaoViagem">
+      <soap:operation soapAction="http://tempuri.org/IServicoPrincipal/Relatorio_ListagemPoDescricaoViagem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

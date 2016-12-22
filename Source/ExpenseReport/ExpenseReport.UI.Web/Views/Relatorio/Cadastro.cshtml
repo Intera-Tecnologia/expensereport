@@ -1,4 +1,4 @@
-﻿
+﻿@model ExpenseReport.UI.Web.ViewModel.RelatorioCadastroViewModel
 @{
     ViewBag.Title = "Cadastro de Relatório";
     Layout = "~/Views/Shared/_Principal.cshtml";
@@ -8,61 +8,66 @@
     <div class="row clearfix">
         <div class="col-md-12">
 
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Erro!</strong> Mensagem de Erro.
-            </div>
+            @if (Model.Retorno != null && Model.Retorno.RetornouErro)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Erro!</strong> @Model.Retorno.MensagemErro
+                </div>
+            }
+
+            @if (Model.Retorno != null && Model.Retorno.RetornouSucesso)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Sucesso!</strong> @Model.Retorno.MensagemSucesso
+                </div>
+            }
 
             <div class="card">
                 <div class="header">
-                    <h2>@ViewBag.Title</h2>
+                    <h2>Cadastro de Relatório</h2>
                 </div>
                 <div class="body">
                     <div class="row clearfix">
                         <div class="col-md-2 col-sm-2">
                             <label>Id</label>
-                            <input type="text" class="form-control" value="1" readonly />
+                            <input type="text" class="form-control" value="@Model.Relatorio.RelatorioID" readonly name="Relatorio.RelatorioID" id="txtRelatorioID"/>
                         </div>
 
                         <div class="col-md-4 col-sm-4">
                             <label>Viagem</label>
-                            <select class="form-control">
-                                <option value="1">Malásia Out 2016</option>
-                                <option value="1">Eua Out 2016</option>
-                            </select>
+                            @Html.DropDownListFor(m => m.Relatorio.ViagemID, new SelectList(Model.ListaViagem, "Value", "Text"), new { @class = "form-control" })
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Diárias Recebidas</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="" name="Descricao" />
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.DiariasRecebidas" name="Relatorio.DiariasRecebidas" id="txtDiariasRecebidas" autocomplete="off" placeholder="Ex: 1500,00"/>
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Adiantamento Recebido</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="" name="Descricao" />
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="15" value="@Model.Relatorio.Adiantamento" name="RelaRelatorio.Adiantamento" id="txtAdiantamento" autocomplete="off" placeholder="Ex: 1500,00"/>
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-2 col-sm-2">
                             <label>Moeda</label>
-                            <input type="text" class="form-control" maxlength="3" value="" name="Descricao" />
+                            <input type="text" class="form-control" maxlength="3" value="@Model.Relatorio.Moeda" name="Relatorio.Moeda" id="txtMoeda" autocomplete="off" placeholder="Ex: USD"/>
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <label>Passagem Faturada</label>
-                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="" name="Descricao" />
+                            <input type="text" class="form-control formata-decimal-dolar" maxlength="50" value="@Model.Relatorio.PassagemFaturada" name="Relatorio.PassagemFaturada" id="txtPassagemFaturada" autocomplete="off" placeholder="Ex: 1500,00"/>
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
 
                         <div class="col-md-3 col-sm-3">
                             <label>Colaborador</label>
-                            <select class="form-control">
-                                <option value="0">Carlos Vamberto</option>
-                                <option value="1">Rodrigo Bezerra</option>
-                                <option value="2">Addison Lima</option>
-                                <option value="3">Ronaldo Martins</option>
-                            </select>
+                            @Html.DropDownListFor(m => m.Relatorio.ColaboradorID, new SelectList(Model.ListaColaborador, "Value", "Text"), new { @class = "form-control" })
                             <span class="label_erro" id="validaDescricao">Campo obrigatório</span>
                         </div>
                         <div class="col-md-12 col-sm-12 text-right">
